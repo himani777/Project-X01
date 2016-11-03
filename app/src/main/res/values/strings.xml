@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BookED</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="api_map_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyAQCgTSyFSCzyO--vwoovLEk7zU8ceVIkc
+    </string>
+</resources>
