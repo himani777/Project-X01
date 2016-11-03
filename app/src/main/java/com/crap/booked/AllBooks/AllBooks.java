@@ -64,6 +64,7 @@ import java.util.List;
         View view= inflater.inflate(R.layout.all_books, container, false);
         Bundle bundle = this.getArguments();
         ecopy = bundle.getString("username");
+        Log.d("ecopy",ecopy);
 
         itemList= new ArrayList<>();
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view1);
@@ -141,6 +142,8 @@ import java.util.List;
                         item.book_exchange_donate = j.getString(8);
                         item.book_date_posted = j.getString(9);
                         itemList.add(item);
+
+                        Log.d("bookname",item.book_name);
 
 
 
