@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 import com.crap.booked.ExchangeOrDonate.TwoAddOptions;
 import com.crap.booked.Profile.EditDetails;
@@ -29,6 +30,7 @@ public class HomeScreen extends android.app.Fragment implements View.OnClickList
     private Boolean isFabOpen = false;
     private FloatingActionButton fab, fab1, fab2;
     private Animation fab_open, fab_close, rotate_forward, rotate_backward;
+    TextView donate,exchange;
 
     static HomeScreen homeScreen=null;
 
@@ -67,6 +69,9 @@ public class HomeScreen extends android.app.Fragment implements View.OnClickList
         System.out.println(ecopy);
         Log.d("eeeeeeeeeeeeeee",ecopy);
 
+        donate= (TextView)v.findViewById(R.id.Donate);
+        exchange = (TextView)v.findViewById(R.id.Exchange);
+
         fab = (FloatingActionButton) v.findViewById(R.id.fab);
         fab1 = (FloatingActionButton)v.findViewById(R.id.fab1);
         fab2 = (FloatingActionButton) v.findViewById(R.id.fab2);
@@ -77,6 +82,9 @@ public class HomeScreen extends android.app.Fragment implements View.OnClickList
         fab.setOnClickListener(this);
         fab1.setOnClickListener(this);
         fab2.setOnClickListener(this);
+        donate.setVisibility(View.GONE);
+        exchange.setVisibility(View.GONE);
+
         return v;
     }
 
@@ -128,6 +136,9 @@ public class HomeScreen extends android.app.Fragment implements View.OnClickList
             fab2.startAnimation(fab_close);
             fab1.setClickable(false);
             fab2.setClickable(false);
+            donate.setVisibility(View.GONE);
+            exchange.setVisibility(View.GONE);
+
             isFabOpen = false;
             Log.d("Raj", "close");
 
@@ -138,12 +149,19 @@ public class HomeScreen extends android.app.Fragment implements View.OnClickList
             fab2.startAnimation(fab_open);
             fab1.setClickable(true);
             fab2.setClickable(true);
+            donate.setVisibility(View.VISIBLE);
+            exchange.setVisibility(View.VISIBLE);
+
             isFabOpen = true;
 
             Log.d("Raj","open");
         }
     }
 
-
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        donate.setVisibility(View.GONE);
+        exchange.setVisibility(View.GONE);
+    }
 }

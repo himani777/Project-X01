@@ -117,9 +117,8 @@ public class TwoAddOptions extends AppCompatActivity {
                                     Log.d("ISBN",scanResult);
                                     Intent intent = new Intent(getBaseContext(), EnterDetails.class);
                                     intent.putExtra("ABCD", scanResult);
-                                    Intent i =getIntent();
-                                    String ed = i.getStringExtra("ED");
-                                    intent.putExtra("ED", ed);
+
+                                    intent.putExtra("ED", value);
 
                                     startActivity(intent);
                                 }
