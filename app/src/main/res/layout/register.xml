@@ -69,6 +69,25 @@
         </android.support.design.widget.TextInputLayout>
     </LinearLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#fe6466">
+
+        <AutoCompleteTextView
+            android:id="@+id/register_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contact"
+            android:inputType="phone"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="#fe6466"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+
 
 
 
@@ -82,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Location"
-            android:inputType="textEmailAddress"
+            android:inputType="textPostalAddress"
             android:maxLines="1"
             android:singleLine="true"
             android:textColor="#fe6466"/>
