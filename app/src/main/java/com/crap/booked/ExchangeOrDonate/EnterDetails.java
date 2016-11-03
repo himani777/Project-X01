@@ -3,13 +3,16 @@ package com.crap.booked.ExchangeOrDonate;
 /**
  * Created by Rashi on 31-08-2016.
  */
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -53,6 +56,10 @@ public class EnterDetails extends AppCompatActivity {
     private ImageButton thumbView;
     String value;
     Toolbar toolbar;
+    String username;
+    int flag =0;
+
+
 
     void getImage(String ur){
         Log.d("asasasa", ur);
@@ -73,11 +80,19 @@ public class EnterDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_details);
         Bundle extras = getIntent().getExtras();
-        value = extras.getString("E/D");
+        value = extras.getString("ED");
+
+        Log.d("ED",value);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("Book Share");
+
+        SharedPreferences sharedPreferences = this.getSharedPreferences("Login",Context.MODE_PRIVATE);
+        username = sharedPreferences.getString("username","NoValue");
+        Log.d("username",username);
+
+
 
         resultset= (Button) findViewById(R.id.resultSubmit);
         authorText = (TextView)findViewById(R.id.book_author);
@@ -104,41 +119,55 @@ public class EnterDetails extends AppCompatActivity {
             public void onClick(View v) {
                 //
                 //  Toast.makeText(getApplication(),"Result Button",Toast.LENGTH_LONG).show();
-                Response.Listener<String> listener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
 
-                            JSONObject jsonObject = new JSONObject(response);
-                            boolean success = jsonObject.getBoolean("success");
 
-                            if (success) {
-                                Toast.makeText(getApplication(), "Success", Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(getApplication() , HomeScreen.class);
-                                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(i);
-                                finish();
+                if(username=="NoValue"){
+                    Snackbar.make(getCurrentFocus(),"Login again to enter book details",Snackbar.LENGTH_LONG).show();
+                }
+                else{
 
-                            } else {
-                                Toast.makeText(getApplication(), "Woops An Error Occurred", Toast.LENGTH_SHORT).show();
 
+                    Response.Listener<String> listener = new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+
+                                JSONObject jsonObject = new JSONObject(response);
+                                boolean success = jsonObject.getBoolean("success");
+                                Log.d("response3",response);
+
+                                if (success) {
+                                    Snackbar.make(getCurrentFocus(),"Succesfully entered details",Snackbar.LENGTH_LONG).show();
+
+
+                                    flag =1;
+                                    //newActivity(flag);
+                                /*Intent i = new Intent(getApplication() , HomeScreen.class);
+                                startActivity(i);*/
+
+                                } else {
+                                    Toast.makeText(getApplication(), "Woops An Error Occurred", Toast.LENGTH_SHORT).show();
+
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
-                    }
-                };
+                    };
 
 
 
 
 
-                set = new EnterDetailsRequest("username", p,titleText.getText().toString(),
-                        authorText.getText().toString() , bookd.getText().toString() , listener);
+                    set = new EnterDetailsRequest(username, p,titleText.getText().toString(),
+                            authorText.getText().toString() , bookd.getText().toString() ,value, listener);
 
-                RequestQueue queue = Volley.newRequestQueue(getApplication());
-                queue.add(set);
+                    RequestQueue queue = Volley.newRequestQueue(getApplication());
+                    queue.add(set);
+
+                }
+
 
 
             }
@@ -247,6 +276,13 @@ public class EnterDetails extends AppCompatActivity {
         Volley.newRequestQueue(this).add(stringRequest);
     }
 
+
+    public void newActivity(int flag){
+        if(flag==1){
+            Intent i = new Intent(this,HomeScreen.class);
+            startActivity(i);
+        }
+    }
 
 
 

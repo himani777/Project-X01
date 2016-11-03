@@ -15,10 +15,10 @@ public class EnterDetailsRequest extends StringRequest
 
 
 
-        private static final String Log_req_url = "http://test1995.net23.net/EnterBooks.php";
+        private static final String Log_req_url = "http://booked.16mb.com/EnterBooks.php";
         private Map<String, String > params;
 
-        public EnterDetailsRequest( String username , String imageurl ,String bookname , String bookauthor, String bookdescription , Response.Listener<String> listener){
+        public EnterDetailsRequest( String username , String imageurl ,String bookname , String bookauthor, String bookdescription ,String ed, Response.Listener<String> listener){
             super(Request.Method.POST, Log_req_url , listener, null);
             params= new HashMap<>();
             params.put("username",username);
@@ -26,6 +26,7 @@ public class EnterDetailsRequest extends StringRequest
             params.put("bookname",bookname);
             params.put("bookauthor",bookauthor);
             params.put("bookdescription",bookdescription);
+            params.put("ed",ed);
 
 
         }
