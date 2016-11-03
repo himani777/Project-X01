@@ -203,12 +203,13 @@ public class Authentication extends AppCompatActivity{
                         } else {
 
 
-                            final EditText email, password, fname, lname, location;
+                            final EditText email, password, fname, lname, location,contact;
                             email = (EditText) findViewById(R.id.register_email);
                             password = (EditText) findViewById(R.id.register_password);
                             fname = (EditText) findViewById(R.id.register_fname);
                             lname = (EditText) findViewById(R.id.register_lname);
                             location = (EditText) findViewById(R.id.register_location);
+                            contact = (EditText) findViewById(R.id.register_contact);
 
                             final String em = email.getText().toString();
                             ema = em;
@@ -216,6 +217,7 @@ public class Authentication extends AppCompatActivity{
                             final String firstname = fname.getText().toString();
                             final String lastname = lname.getText().toString();
                             final String loc = location.getText().toString();
+                            final String phone = contact.getText().toString();
 
 
                             Log.d("em", em);
@@ -247,7 +249,7 @@ public class Authentication extends AppCompatActivity{
                                                     editor.apply();*/
 
 
-                                            registerUser(em, pass, firstname, lastname, loc, email, password, fname, lname, location);
+                                            registerUser(em, pass, firstname, lastname, loc, email, password, fname, lname, location,phone);
 
 
 
@@ -276,9 +278,9 @@ public class Authentication extends AppCompatActivity{
     }
 
 
-    public void registerUser(final String em, final String pass, final String firstname , final String lastname, final String loc, EditText email, EditText password, final EditText fname, final EditText lname, EditText location){
+    public void registerUser(final String em, final String pass, final String firstname , final String lastname, final String loc, EditText email, EditText password, final EditText fname, final EditText lname, EditText location, final String phone){
 
-        if(TextUtils.isEmpty(firstname) ||TextUtils.isEmpty(lastname) || TextUtils.isEmpty(loc)||TextUtils.isEmpty(pass) ){
+        if(TextUtils.isEmpty(firstname) ||TextUtils.isEmpty(lastname) || TextUtils.isEmpty(loc)||TextUtils.isEmpty(pass)|| TextUtils.isEmpty(phone) ){
             Snackbar.make(getCurrentFocus(),"Fill All the Details ",Snackbar.LENGTH_SHORT).show();
 
         }
@@ -296,7 +298,7 @@ public class Authentication extends AppCompatActivity{
                         if (response.contains("0")) {
 
                             Log.d("Registering","register");
-                            GetLoc(firstname,lastname,em,pass,loc,sharedPref);
+                            GetLoc(firstname,lastname,em,pass,loc,phone,sharedPref);
 
                         }
                         else {
@@ -344,7 +346,7 @@ public class Authentication extends AppCompatActivity{
 
 
 
-    public void GetLoc(final String firstname, final String lastname, final String em, final String pass, String loc, final SharedPreferences sharedPref)
+    public void GetLoc(final String firstname, final String lastname, final String em, final String pass, String loc,String phone, final SharedPreferences sharedPref)
     {
 
         Geocoder coder = new Geocoder(Authentication.this);
@@ -358,7 +360,7 @@ public class Authentication extends AppCompatActivity{
             double lng = location.getLongitude();
             Log.i("Lat",""+lat);
             Log.i("Lng",""+lng);
-            SetData(firstname,lastname,em,pass,loc,lat,lng,sharedPref);
+            SetData(firstname,lastname,em,pass,loc,lat,lng,phone,sharedPref);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -367,7 +369,7 @@ public class Authentication extends AppCompatActivity{
 
     }
 
-    public void SetData(final String firstname, final String lastname, final String em, final String pass, String loc,double lat, double lon , final SharedPreferences sharedPref){
+    public void SetData(final String firstname, final String lastname, final String em, final String pass, String loc,double lat, double lon ,String phone, final SharedPreferences sharedPref){
 
 
         // Enter details of the user
@@ -410,7 +412,7 @@ public class Authentication extends AppCompatActivity{
                 }
             }
         };
-        RegisterUser registerUser = new RegisterUser(firstname, lastname, em, pass, loc,lat, lon , listener);
+        RegisterUser registerUser = new RegisterUser(firstname, lastname, em, pass, loc,lat, lon ,phone, listener);
         VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(registerUser);
 
 

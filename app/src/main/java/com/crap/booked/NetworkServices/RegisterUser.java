@@ -17,7 +17,7 @@ public class RegisterUser extends StringRequest {
     private Map<String, String > params;
 
     public RegisterUser(String fname, String lname , String email, String password ,
-                        String loc , double lat, double lon , Response.Listener<String> listener){
+                        String loc , double lat, double lon, String phone , Response.Listener<String> listener){
         super(Method.POST, Reg_url, listener, null);
         params= new HashMap<>();
         params.put("first_name",fname);
@@ -27,6 +27,7 @@ public class RegisterUser extends StringRequest {
         params.put("password",password);
         params.put("latitude",String.valueOf(lat));
         params.put("longitude",String.valueOf(lon));
+        params.put("phone",phone);
 
 
     }
