@@ -83,6 +83,7 @@ public class Authentication extends AppCompatActivity{
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
             startActivity(i);
+            finish();
 
         } else {
             final SharedPreferences sharedPref = this.getSharedPreferences("Login", Context.MODE_PRIVATE);
@@ -111,6 +112,7 @@ public class Authentication extends AppCompatActivity{
                 Intent i = new Intent(Authentication.this, BottomNavigation.class);
                 i.putExtra("username", un);
                 startActivity(i);
+                finish();
             }else{
 
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
