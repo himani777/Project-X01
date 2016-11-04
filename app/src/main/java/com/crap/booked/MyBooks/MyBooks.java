@@ -1,6 +1,8 @@
 package com.crap.booked.MyBooks;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -70,12 +72,12 @@ public class MyBooks extends android.app.Fragment{
         getActivity().setTitle("My Shelf");
 //        ecopy = getArguments().getString("email");
 
-     /*   SharedPreferences sharedPreferences = this.getActivity().getPreferences(Context.MODE_PRIVATE);
+       SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
         String ecopy =  sharedPreferences.getString("username","");
 
 
         System.out.println(ecopy);
-        Log.d("ecopy",ecopy);*/
+        Log.d("ecopy",ecopy);
 
 
 
@@ -94,6 +96,8 @@ public class MyBooks extends android.app.Fragment{
             @Override
             public void onResponse(String response) {
                 try {
+
+                    Log.d(response,response);
 
                     JSONArray jsonArray = new JSONArray(response);
 
@@ -134,7 +138,7 @@ public class MyBooks extends android.app.Fragment{
                     e.printStackTrace();
                 }
                 finally {
-                    Log.d("Data Set Cganhed","Data Set Cganhed");
+                    Log.d("Data Set Chanhed","Data Set Cganhed");
                     mAdapter.notifyDataSetChanged();
 
 
@@ -144,6 +148,12 @@ public class MyBooks extends android.app.Fragment{
 
         mAdapter.notifyDataSetChanged();
 
+        Log.e("Emailllllll.",ecopy);
+        Log.e("Emailllllll.",ecopy);
+        Log.e("Emailllllll.",ecopy);
+        Log.e("Emailllllll.",ecopy);
+        Log.e("Emailllllll.",ecopy);
+        Log.e("Emailllllll.",ecopy);
         MyBooksViaEmail a = new MyBooksViaEmail(ecopy,listener);
         /*RequestQueue queue = Volley.newRequestQueue(getActivity());
         queue.add(a);*/
@@ -151,26 +161,7 @@ public class MyBooks extends android.app.Fragment{
 
 
 
-        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-            @Override
-            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
 
-                // showInputDialog();
-
-                return true;
-
-            }
-
-            @Override
-            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-            }
-        });
 
         return view;
     }

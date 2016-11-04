@@ -40,6 +40,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class EnterDetails extends AppCompatActivity {
@@ -160,8 +163,10 @@ public class EnterDetails extends AppCompatActivity {
 
 
 
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    Date date = new Date(); //2014/08/06 15:59:48
                     set = new EnterDetailsRequest(username, p,titleText.getText().toString(),
-                            authorText.getText().toString() , bookd.getText().toString() ,value, listener);
+                            authorText.getText().toString()  ,value, String.valueOf(dateFormat.format(date)), listener);
 
                     RequestQueue queue = Volley.newRequestQueue(getApplication());
                     queue.add(set);

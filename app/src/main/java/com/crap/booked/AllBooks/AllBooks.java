@@ -136,7 +136,7 @@ import java.util.List;
                         item.book_image = j.getString(5);
                         item.book_name = j.getString(6);
 
-                        Log.d("book names",item.book_image);
+                        //Log.d("book names",item.book_image);
                         item.book_author = j.getString(7);
                         item.book_description = j.getString(7);
                         item.book_exchange_donate = j.getString(8);
@@ -237,37 +237,6 @@ import java.util.List;
         super.onCreateOptionsMenu(menu, inflater);
 
     }
-
-    protected void showInputDialog() {
-
-        // get prompts.xml view
-        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-        View promptView = layoutInflater.inflate(R.layout.details_dialog, null);
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
-        alertDialogBuilder.setView(promptView);
-        getView().setAlpha(0.5f);
-
-
-        // setup a dialog window
-        alertDialogBuilder.setCancelable(false)
-                .setPositiveButton("YES", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                    }
-
-
-                })
-                .setNegativeButton("NO",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        });
-
-        // create an alert dialog
-        AlertDialog alert = alertDialogBuilder.create();
-        alert.show();
-    }
-
     @Override
     public void onResume() {
         super.onResume();

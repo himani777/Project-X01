@@ -65,17 +65,17 @@ public class ProfileFragment extends android.app.Fragment{
         System.out.println(ecopy);
         Log.d("eeeeeeeeeeeeeee",ecopy);*/
 
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Login",Context.MODE_PRIVATE);
-        String fname=sharedPreferences.getString("fname","A");
-        String lname = sharedPreferences.getString("lname","B");
+        /*SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Login",Context.MODE_PRIVATE);
+        String fname=sharedPreferences.getString("fname","U");
+        String lname = sharedPreferences.getString("lname"," ");
 
         char p = fname.toUpperCase().charAt(0);
         char s = lname.toUpperCase().charAt(0);
-        Log.d("bhgsgvscgvdcgdgc",String.valueOf(p));
+        */
 
         //s= sharedPreferences.getString("email","abc");
         TextView profile_name = (TextView) v.findViewById(R.id.profile_name);
-        profile_name.setText(String.valueOf(p)+" "+String.valueOf(s));
+        profile_name.setText(String.valueOf("You"));
 
 
         detail.setOnClickListener(new View.OnClickListener() {
