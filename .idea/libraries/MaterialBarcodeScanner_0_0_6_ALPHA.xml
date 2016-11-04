@@ -1,11 +1,8 @@
 <component name="libraryTable">
   <library name="MaterialBarcodeScanner-0.0.6-ALPHA">
-    <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.edwardvanraak/MaterialBarcodeScanner/0.0.6-ALPHA/annotations.zip!/" />
-    </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.edwardvanraak/MaterialBarcodeScanner/0.0.6-ALPHA/res" />
       <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.edwardvanraak/MaterialBarcodeScanner/0.0.6-ALPHA/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.edwardvanraak/MaterialBarcodeScanner/0.0.6-ALPHA/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
