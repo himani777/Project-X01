@@ -5,10 +5,12 @@ package com.crap.booked.ExchangeOrDonate;
  */
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -27,6 +29,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.crap.booked.R;
 import com.edwardvanraak.materialbarcodescanner.MaterialBarcodeScanner;
@@ -53,30 +56,46 @@ public class TwoAddOptions extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         final String value = extras.getString("E/D");
 
+        Log.e("Tololotot" , value);
+
+        Log.e("Tololotot" , value);
+        Log.e("Tololotot" , value);
+        Log.e("Tololotot" , value);
+
+
+
         manuald.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-        /*        Intent i = new Intent(TwoAddOptions.this , EnterDetails.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                i.putExtra("E/D", value);
-                startActivity(i);
-        */
+                Context context = getApplication();
+                ConnectivityManager cm =
+                        (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                boolean isConnected = activeNetwork != null &&
+                        activeNetwork.isConnectedOrConnecting();
+                if(isConnected){
                 new MaterialDialog.Builder(v.getContext())
-                        .title("yoyooyo")
+                        .title("Enter ISBN manually")
                         .inputRangeRes(10, 13, R.color.colorAccent)
                         .input(null, null, new MaterialDialog.InputCallback() {
                             @Override
                             public void onInput(MaterialDialog dialog, CharSequence input) {
                                 Intent intent = new Intent(getBaseContext(), EnterDetails.class);
                                 intent.putExtra("ABCD", scanResult);
-                                Intent i =getIntent();
-                                String ed = i.getStringExtra("ED");
-                                intent.putExtra("ED", ed);
+                                Intent i =  getIntent();
+                                String ed = i.getStringExtra("E/D");
+                                Log.e("Tololotot" , value + "  ddd   "+ ed);
+                                intent.putExtra( "ED" , ed );
                                 startActivity(intent);
                             }
                         }).show();
+                }
+                else{
+                    Toast.makeText(getApplication(), "Connect To Internet", Toast.LENGTH_LONG).show();
+                }
+
 
             }
         });
@@ -84,7 +103,7 @@ public class TwoAddOptions extends AppCompatActivity {
 
         barcoded.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 Context context = getApplication();
                 ConnectivityManager cm =
                         (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -115,17 +134,39 @@ public class TwoAddOptions extends AppCompatActivity {
                                     Log.d("Scan","Scann");
                                     scanResult=barcode.rawValue;
                                     Log.d("ISBN",scanResult);
-                                    Intent intent = new Intent(getBaseContext(), EnterDetails.class);
-                                    intent.putExtra("ABCD", scanResult);
 
-                                    intent.putExtra("ED", value);
 
-                                    startActivity(intent);
+                                    new MaterialDialog.Builder(v.getContext())
+                                            .title("Is this ISBN correct?")
+                                            .content(scanResult)
+                                            .positiveText("Agree")
+                                            .negativeText("Disagree")
+                                            .cancelable(false)
+                                            .showListener(new DialogInterface.OnShowListener() {
+                                                @Override
+                                                public void onShow(DialogInterface dialog) {
+
+                                                }
+                                            })
+                                            .onPositive(new MaterialDialog.SingleButtonCallback() {
+                                                @Override
+                                                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+
+                                                    Intent intent = new Intent(getBaseContext(), EnterDetails.class);
+                                                    intent.putExtra("ABCD", scanResult);
+                                                    intent.putExtra("ED", value);
+                                                    startActivity(intent);
+                                                }
+                                            })
+                                            .show();
+
+
+
                                 }
                             })
                             .withCenterTracker()
-
                             .build();
+
                     materialBarcodeScanner.startScan();
                 }
                 else{

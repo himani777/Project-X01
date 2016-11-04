@@ -4,6 +4,7 @@ package com.crap.booked.ExchangeOrDonate;
  * Created by Rashi on 31-08-2016.
  */
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -12,6 +13,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -25,6 +27,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -34,7 +38,11 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.crap.booked.Main.HomeScreen;
 import com.crap.booked.NetworkServices.EnterDetailsRequest;
+import com.crap.booked.Profile.EditDetails;
 import com.crap.booked.R;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,7 +69,7 @@ public class EnterDetails extends AppCompatActivity {
     Toolbar toolbar;
     String username;
     int flag =0;
-
+    MaterialDialog dialog;
 
 
     void getImage(String ur){
@@ -75,6 +83,14 @@ public class EnterDetails extends AppCompatActivity {
                 }, 0, 0, null , null);
 
         Volley.newRequestQueue(this).add(imgRequest);
+
+       /* Picasso.with(thumbView.getContext()).load(url)
+                //.onlyScaleDown()
+                // .centerCrop()
+                // .skipMemoryCache()
+                .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                .networkPolicy(NetworkPolicy.NO_CACHE)
+                .into(thumbView);*/
     }
 
 
@@ -100,21 +116,7 @@ public class EnterDetails extends AppCompatActivity {
         resultset= (Button) findViewById(R.id.resultSubmit);
         authorText = (TextView)findViewById(R.id.book_author);
         titleText = (TextView)findViewById(R.id.book_title);
-        bookp = (TextView)findViewById(R.id.book_publisher);
         thumbView = (ImageButton) findViewById(R.id.thumb);
-        bookd =(EditText) findViewById(R.id.des);
-
-        thumbView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(
-                        Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-                startActivityForResult(i, RESULT_LOAD_IMAGE);
-            }
-        });
 
 
         resultset.setOnClickListener(new View.OnClickListener() {
@@ -140,7 +142,7 @@ public class EnterDetails extends AppCompatActivity {
                                 Log.d("response3",response);
 
                                 if (success) {
-                                    Snackbar.make(getCurrentFocus(),"Succesfully entered details",Snackbar.LENGTH_LONG).show();
+                                    Snackbar.make(getCurrentFocus(),"Succesfully added!",Snackbar.LENGTH_LONG).show();
 
 
                                     flag =1;
@@ -149,7 +151,7 @@ public class EnterDetails extends AppCompatActivity {
                                 startActivity(i);*/
 
                                 } else {
-                                    Toast.makeText(getApplication(), "Woops An Error Occurred", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplication(), "Error Occurred! Report or try again later.", Toast.LENGTH_SHORT).show();
 
                                 }
 
@@ -183,11 +185,20 @@ public class EnterDetails extends AppCompatActivity {
         Log.d("ABC","y1");
         if(b[0] !=null)
         {
+
+            dialog = new MaterialDialog.Builder(EnterDetails.this)
+                .title("Fetching Data")
+                .content("And Its Almost There")
+                .progress(true, 0)
+                .show();
+
             Log.d("ABC","y2");
             isbncode = b[0].getString("ABCD");
             Log.d("ABC",isbncode + "isbn ends");
             url = "https://www.googleapis.com/books/v1/volumes?q=isbn:"+isbncode;
+
             getInfo(url);
+        //    dialog.dismiss();
 
         }
 
@@ -240,6 +251,34 @@ public class EnterDetails extends AppCompatActivity {
 
                             Log.d("aaaaaa", b);
                             JSONObject obj = new JSONObject(b);
+
+                            String check = obj.getString("totalItems");
+                            if(check.endsWith("0")){
+                                dialog.dismiss();
+                                new MaterialDialog.Builder(EnterDetails.this)
+                                        .title("No Information")
+                                        .content("No data for this ISBN. If this information is wrong, do report.")
+                                        .positiveText("Okay")
+                                        .cancelable(false)
+                                        .showListener(new DialogInterface.OnShowListener() {
+                                            @Override
+                                            public void onShow(DialogInterface dialog) {
+
+                                            }
+                                        })
+                                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                                            @Override
+                                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+
+
+                                                Intent i = new Intent(EnterDetails.this,TwoAddOptions.class);
+                                                i.putExtra("E/D", "E");
+                                                startActivity(i);
+                                            }
+                                        })
+                                        .show();
+                            }
+
                             JSONArray items = obj.getJSONArray("items");
                             JSONObject info = items.getJSONObject(0);
                             JSONObject abc= info.getJSONObject("volumeInfo");
@@ -255,9 +294,10 @@ public class EnterDetails extends AppCompatActivity {
 
 
                             titleText.setText(abc.getString("title"));
-                            bookp.setText( abc.getString("publisher"));
+//                            bookp.setText( abc.getString("publisher"));
                             authorText.setText(aut.toString());
                             getImage(ur);
+                            dialog.dismiss();
 
 
 

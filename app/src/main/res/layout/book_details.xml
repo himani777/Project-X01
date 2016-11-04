@@ -105,61 +105,9 @@
 
 
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="0dp"
-                    android:textColorHint="#330000"
-                    android:layout_marginLeft="0dp"
-                    >
-                    <EditText android:id="@+id/book_publisher"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Book Publisher"
-                        android:textColor="#330000"
-                        />
-                </android.support.design.widget.TextInputLayout>
-
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="16dp"
-                    >
-                    <RadioGroup
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Type"/>
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Study Material"/>
-
-
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Other"/>
-
-
-                    </RadioGroup>
-
-                </LinearLayout>
 
 
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/des"
-                    android:hint="Short Description, for example Genre "/>
 
                 <Button
                     android:layout_width="match_parent"
