@@ -41,9 +41,6 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.MyView
 
 
 
-
-
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView book_name , book_author , book_description ,  book_exchange_donate, book_date_posted;
         ImageView book_image;
@@ -69,6 +66,7 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.MyView
 
     public AllBooksAdapter(List<BooksData> itemList) {
         this.itemlist = itemList;
+       Log.e("Sizeeeeee",itemList.size()+"yo");
     }
 
 
@@ -79,7 +77,7 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.MyView
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.my_books_layout , parent, false);
 
-        return new MyViewHolder(itemView);
+        return new  MyViewHolder(itemView);
     }
 
     @Override
@@ -93,6 +91,7 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.MyView
                holder.book_exchange_donate.setText(booksModel.getBook_exchange_donate());
 */
 
+        Log.e("Called","Yoyoyoyooyoy" + position);
 
         final BooksData booksModel = itemlist.get(position);
         holder.book_name.setText(booksModel.book_name);
@@ -148,6 +147,7 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.MyView
 
     @Override
     public int getItemCount() {
+        Log.e("Sizee",itemlist.size()+"yo");
         return itemlist.size();
     }
 

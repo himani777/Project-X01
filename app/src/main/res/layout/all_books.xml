@@ -6,19 +6,15 @@
     android:layout_height="wrap_content"
     android:background="#E0E0E0">
         
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:scrollbars="vertical"
             />
 
-        </ScrollView>
 
 
 
