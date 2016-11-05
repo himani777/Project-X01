@@ -5,7 +5,6 @@ package com.crap.booked.AllBooks;
  */
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -23,12 +22,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.crap.booked.MyBooks.MyBooks;
 import com.crap.booked.NetworkServices.VolleySingleton;
 import com.crap.booked.R;
-import com.facebook.drawee.backends.pipeline.Fresco;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -61,7 +56,7 @@ public class UserBooksAdapter extends RecyclerView.Adapter<UserBooksAdapter.MyVi
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView book_name , book_author , book_description ,  book_exchange_donate, book_date_posted;
+        public TextView book_name , book_author ,  book_exchange_donate, book_date_posted;
         ImageView book_image;
 
         public MyViewHolder(View view) {
@@ -70,7 +65,7 @@ public class UserBooksAdapter extends RecyclerView.Adapter<UserBooksAdapter.MyVi
 
             book_author = (TextView) view.findViewById(R.id.mbl_bookauthor);
 
-            book_description = (TextView) view.findViewById(R.id.mbl_bookdescription);
+            //book_description = (TextView) view.findViewById(R.id.mbl_bookdescription);
 
             book_image = (ImageView) view.findViewById(R.id.mbl_bookimage);
 
@@ -93,7 +88,7 @@ public class UserBooksAdapter extends RecyclerView.Adapter<UserBooksAdapter.MyVi
 
 
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.my_books_layout , parent, false);
+                .inflate(R.layout.books_layout, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -114,7 +109,7 @@ public class UserBooksAdapter extends RecyclerView.Adapter<UserBooksAdapter.MyVi
         final BooksData booksModel = itemlist.get(position);
         holder.book_name.setText(booksModel.book_name);
         holder.book_author.setText(booksModel.book_author);
-        holder.book_description.setText(booksModel.book_author);
+        //holder.book_description.setText(booksModel.book_author);
         holder.book_date_posted.setText(booksModel.book_date_posted);
         holder.book_exchange_donate.setText(booksModel.book_exchange_donate);
 

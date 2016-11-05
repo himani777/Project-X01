@@ -15,11 +15,13 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -73,7 +75,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.location_fragment);
         Log.d("Adsdsdsdsds", "Sdsdsdsdsdsdsdsdsdsdsdsdsdssdss");
-
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar3);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("Maps");
 
 
         mylocation = (FloatingActionButton) findViewById(R.id.fab12);
@@ -344,6 +348,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Location location = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
         if(location==null){
             System.out.println("location not found");
+            Snackbar.make(getCurrentFocus(),"Could not get the location ! Try Again",Snackbar.LENGTH_LONG).show();
         }
         else{
             //handleNewLocation(location);

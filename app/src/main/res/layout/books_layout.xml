@@ -38,7 +38,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.7"
+            android:layout_weight="0.5"
             android:id="@+id/right"
             android:orientation="vertical"
             android:gravity="center">
@@ -62,7 +62,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2.3"
+            android:layout_weight="2.5"
             android:id="@+id/left"
             android:orientation="vertical"
             android:layout_marginLeft="5sp">
@@ -83,13 +83,6 @@
                     android:id="@+id/mbl_bookname"
                     />
 
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_more_vert_black_24dp"
-
-                    android:layout_alignParentRight="true"/>
 
 
             </RelativeLayout>
@@ -117,13 +110,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_today_black_18dp"
-                    android:id="@+id/cal"/>
+                    android:id="@+id/cal" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="12/01/1998"
                     android:textColor="#004D40"
+                    android:paddingLeft="10sp"
                     android:layout_toRightOf="@id/cal"
                     android:id="@+id/mbl_date_posted"
                     />
@@ -142,11 +136,6 @@
             </RelativeLayout>
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/mbl_bookdescription"
-                android:text="Desciption"/>
 
 
 
@@ -162,73 +151,7 @@
     </LinearLayout>
 
 
-  <!--
-
-  <View
-        android:layout_width="match_parent"
-        android:layout_height="2sp"
-        android:layout_below="@+id/middlebar"
-        android:layout_marginTop="5sp"
-        android:background="#60000000"
-        android:id="@+id/view"/>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/view"
-        android:layout_marginTop="10sp"
-        android:orientation="horizontal"
-        android:weightSum="3">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Exchange"
-                android:background="#30000000"/>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Donate"
-                android:background="#30000000"/>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Delete"
-                android:background="#30000000"/>
-
-        </LinearLayout>
-
-
-
-    </LinearLayout>
--->
-    </RelativeLayout>
+  </RelativeLayout>
 
 
 

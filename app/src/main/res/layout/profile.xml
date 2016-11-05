@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#263238"
-        android:layout_weight="0.5"
+        android:layout_weight="0.8"
         android:gravity="center"
         android:layout_marginBottom="10dp">
 
@@ -23,8 +23,7 @@
             android:layout_height="wrap_content"
             android:text="A"
             android:id="@+id/profile_name"
-            android:textSize="100sp"
-            android:textColor="#b0bec5"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
         </LinearLayout>
 
     </LinearLayout>
@@ -61,7 +60,7 @@
                     android:id="@+id/text1"
                     android:layout_below="@+id/detail"
                     android:layout_marginLeft="40sp"
-                    />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 
                 <View
@@ -76,11 +75,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/detail"
-                    android:textSize="25dp"
                     android:text="Details"
                     android:layout_alignParentTop="true"
                     android:layout_alignLeft="@+id/text1"
-                    android:layout_alignStart="@+id/text1" />
+                    android:layout_alignStart="@+id/text1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
 
             </RelativeLayout>
@@ -104,7 +103,7 @@
                     android:id="@+id/text2"
                     android:layout_below="@+id/favourities"
                     android:layout_marginLeft="40sp"
-                    />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 
                 <View
@@ -119,11 +118,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/favourities"
-                    android:textSize="25dp"
                     android:text="Favorites | Coming Soon..."
                     android:layout_alignParentTop="true"
                     android:layout_alignLeft="@+id/text2"
-                    android:layout_alignStart="@+id/text2" />
+                    android:layout_alignStart="@+id/text2"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -156,7 +155,7 @@
                     android:id="@+id/text3"
                     android:layout_below="@+id/request"
                     android:layout_marginLeft="40sp"
-                    />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 
                 <View
@@ -171,11 +170,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/request"
-                    android:textSize="25dp"
                     android:text="Requests | Coming Soon..."
                     android:layout_alignParentTop="true"
                     android:layout_alignLeft="@+id/text3"
-                    android:layout_alignStart="@+id/text3" />
+                    android:layout_alignStart="@+id/text3"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -213,7 +212,7 @@
                     android:id="@+id/text4"
                     android:layout_below="@+id/contactus"
                     android:layout_marginLeft="40sp"
-                    />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 
                 <View
@@ -228,11 +227,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/contactus"
-                    android:textSize="25dp"
                     android:text="Contact Us | Coming Soon..."
                     android:layout_alignParentTop="true"
                     android:layout_alignLeft="@+id/text4"
-                    android:layout_alignStart="@+id/text4" />
+                    android:layout_alignStart="@+id/text4"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
                 <ImageView
                     android:layout_width="wrap_content"

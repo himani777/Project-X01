@@ -5,32 +5,22 @@ package com.crap.booked.AllBooks;
  */
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.LinearGradient;
-import android.graphics.Shader;
-import android.media.Image;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.crap.booked.R;
-import com.facebook.drawee.backends.pipeline.Fresco;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 import java.util.List;
-import java.util.Locale;
 
 public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.MyViewHolder>  {
 
@@ -42,7 +32,7 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.MyView
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView book_name , book_author , book_description ,  book_exchange_donate, book_date_posted;
+        public TextView book_name , book_author ,  book_exchange_donate, book_date_posted;
         ImageView book_image;
 
         public MyViewHolder(View view) {
@@ -51,7 +41,7 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.MyView
 
             book_author = (TextView) view.findViewById(R.id.mbl_bookauthor);
 
-            book_description = (TextView) view.findViewById(R.id.mbl_bookdescription);
+            //book_description = (TextView) view.findViewById(R.id.mbl_bookdescription);
 
             book_image = (ImageView) view.findViewById(R.id.mbl_bookimage);
 
@@ -75,7 +65,7 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.MyView
 
 
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.my_books_layout , parent, false);
+                .inflate(R.layout.books_layout, parent, false);
 
         return new  MyViewHolder(itemView);
     }
@@ -96,7 +86,7 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.MyView
         final BooksData booksModel = itemlist.get(position);
         holder.book_name.setText(booksModel.book_name);
         holder.book_author.setText(booksModel.book_author);
-        holder.book_description.setText(booksModel.book_author);
+       // holder.book_description.setText(booksModel.book_author);
         holder.book_date_posted.setText(booksModel.book_date_posted);
         holder.book_exchange_donate.setText(booksModel.book_exchange_donate);
 

@@ -151,7 +151,14 @@ import java.util.List;
                         //Log.d("book names",item.book_image);
                         item.book_author = j.getString(7);
                         item.book_description = j.getString(7);
-                        item.book_exchange_donate = j.getString(8);
+                        String ed = j.getString(8);
+                        if(ed.equals("E")){
+                            item.book_exchange_donate = "Exchange";
+                        }
+                        else{
+                            item.book_exchange_donate = "Donate";
+
+                        }
                         item.book_date_posted = j.getString(9);
                         itemList.add(item);
 

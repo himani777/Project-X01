@@ -134,7 +134,14 @@ public class MyBooks extends android.app.Fragment{
                         item.book_name = j.getString(4);
                         item.book_author = j.getString(5);
                         item.book_description = j.getString(6);
-                        item.book_exchange_donate = j.getString(7);
+                        String ed = j.getString(7);
+                        if(ed.equals("E")){
+                            item.book_exchange_donate = "Exchange";
+                        }
+                        else{
+                            item.book_exchange_donate = "Donate";
+
+                        }
                         item.book_date_posted = j.getString(8);
                         item.bid = j.getInt(0);
                         itemList.add(item);
