@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.MenuItemCompat;
@@ -18,6 +19,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
@@ -148,6 +150,7 @@ public class BottomNavigation extends AppCompatActivity {
                         bundle2.putString("username",username);
                         AllBooks.newInstance().setArguments(bundle2);
                         fragmentTransaction.replace(R.id.fragmentContainer, AllBooks.newInstance() );
+
                         fragmentTransaction.commit();
                         break;
 
@@ -160,6 +163,7 @@ public class BottomNavigation extends AppCompatActivity {
                         HomeScreen.newInstance().setArguments(bundle3);
 
                         fragmentTransaction.replace(R.id.fragmentContainer,HomeScreen.newInstance());
+
                         fragmentTransaction.commit();
                         break;
 
@@ -171,6 +175,7 @@ public class BottomNavigation extends AppCompatActivity {
                         bundle6.putString("username",username);
                         MyBooks.newInstance().setArguments(bundle6);
                         fragmentTransaction.replace(R.id.fragmentContainer, MyBooks.newInstance());
+
                         fragmentTransaction.commit();
                         break;
 
@@ -183,6 +188,7 @@ public class BottomNavigation extends AppCompatActivity {
                         bundle5.putString("fname",fname);
                         ProfileFragment.newInstance().setArguments(bundle5);
                         fragmentTransaction.replace(R.id.fragmentContainer,  ProfileFragment.newInstance());
+
                         fragmentTransaction.commit();
                         break;
 
@@ -237,6 +243,30 @@ public class BottomNavigation extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    boolean doubleBackToExitPressedOnce = false;
+    @Override
+    public void onBackPressed() {
+        //Checking for fragment count on backstack
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
+        } else if (!doubleBackToExitPressedOnce) {
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this,"Please click BACK again to exit.", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce = false;
+                }
+            }, 2000);
+        } else {
+            super.onBackPressed();
+            finish();
+            return;
+        }
     }
 
 
