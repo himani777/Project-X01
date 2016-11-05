@@ -17,6 +17,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Response;
 import com.crap.booked.AllBooks.BooksData;
 import com.crap.booked.AllBooks.UserBooksAdapter;
@@ -40,7 +42,7 @@ public class MyBooks extends android.app.Fragment{
     private RecyclerView recyclerView;
     private UserBooksAdapter mAdapter;
     static MyBooks myBooks;
-
+    private MaterialDialog dialog;
 
 
     public static MyBooks newInstance() {
@@ -65,6 +67,14 @@ public class MyBooks extends android.app.Fragment{
         //ecopy = "goel.rashi48@gmail.com";
         //ecopy = getArguments().getString("username");
         //Log.d("mybooks",ecopy);
+
+
+        dialog = new MaterialDialog.Builder(view.getContext())
+                .title("Fetching Data")
+                .content("And Its Almost There")
+                .progress(true, 0)
+                .cancelable(false)
+                .show();
 
         itemList = new ArrayList<>();
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view1);
@@ -126,6 +136,7 @@ public class MyBooks extends android.app.Fragment{
                         item.book_description = j.getString(6);
                         item.book_exchange_donate = j.getString(7);
                         item.book_date_posted = j.getString(8);
+                        item.bid = j.getInt(0);
                         itemList.add(item);
 
                     }
@@ -140,13 +151,13 @@ public class MyBooks extends android.app.Fragment{
                 finally {
                     Log.d("Data Set Chanhed","Data Set Cganhed");
                     mAdapter.notifyDataSetChanged();
-
+                    dialog.dismiss();
 
                 }
             }
         };
 
-        mAdapter.notifyDataSetChanged();
+      //  mAdapter.notifyDataSetChanged();
 
         Log.e("Emailllllll.",ecopy);
         Log.e("Emailllllll.",ecopy);
@@ -157,6 +168,7 @@ public class MyBooks extends android.app.Fragment{
         MyBooksViaEmail a = new MyBooksViaEmail(ecopy,listener);
         /*RequestQueue queue = Volley.newRequestQueue(getActivity());
         queue.add(a);*/
+        a.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         VolleySingleton.getInstance(getActivity()).addToRequestQueue(a);
 
 
@@ -226,35 +238,7 @@ public class MyBooks extends android.app.Fragment{
 
     }
 
-    protected void showInputDialog() {
 
-        // get prompts.xml view
-        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-        View promptView = layoutInflater.inflate(R.layout.details_dialog, null);
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
-        alertDialogBuilder.setView(promptView);
-        getView().setAlpha(0.5f);
-
-
-        // setup a dialog window
-        alertDialogBuilder.setCancelable(false)
-                .setPositiveButton("YES", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                    }
-
-
-                })
-                .setNegativeButton("NO",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        });
-
-        // create an alert dialog
-        AlertDialog alert = alertDialogBuilder.create();
-        alert.show();
-    }
 
     @Override
     public void onResume() {

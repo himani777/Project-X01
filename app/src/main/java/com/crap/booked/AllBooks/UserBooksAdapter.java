@@ -6,16 +6,27 @@ package com.crap.booked.AllBooks;
 
 import android.content.Context;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.crap.booked.MyBooks.MyBooks;
+import com.crap.booked.NetworkServices.VolleySingleton;
 import com.crap.booked.R;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.squareup.picasso.MemoryPolicy;
@@ -137,6 +148,120 @@ public class UserBooksAdapter extends RecyclerView.Adapter<UserBooksAdapter.MyVi
       /*  final Uri imageUri = Uri.parse(image_url);
         holder.book_image.setImageURI(imageUri);
 */
+
+
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                new MaterialDialog.Builder(v.getContext())
+                        .title(booksModel.book_name)
+                        .content("What would you like to do with it ?")
+                        .positiveText("Exchange")
+                        .negativeText("Donate")
+                        .neutralText("Delete")
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                // TODO
+                                String url ="http://booked.16mb.com/ExchangeBook.php?bid="+booksModel.bid;
+                                Log.d("url",url);
+
+                                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                                        new Response.Listener<String>() {
+                                            @Override
+                                            public void onResponse(String response) {
+                                                // process your response here
+                                                Log.d("response",response);
+                                                Toast.makeText(v.getContext(),"Book is now up for Exchange. Refresh to view changes.",Toast.LENGTH_SHORT).show();
+
+                                            }
+                                        }, new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        //perform operation here after getting error
+                                    }
+                                });
+
+                                VolleySingleton.getInstance(v.getContext()).addToRequestQueue(stringRequest);
+
+
+
+
+                            }
+                        })
+                        .onNeutral(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                // TODO
+
+                                String url ="http://booked.16mb.com/DeleteBook.php?bid="+booksModel.bid;
+                                Log.d("url",url);
+
+                                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                                        new Response.Listener<String>() {
+                                            @Override
+                                            public void onResponse(String response) {
+                                                // process your response here
+                                                Log.d("response",response);
+                                                Toast.makeText(v.getContext(),"Book Deleted. Refresh to view changes.",Toast.LENGTH_SHORT).show();
+
+                                            }
+                                        }, new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        //perform operation here after getting error
+                                    }
+                                });
+
+                                VolleySingleton.getInstance(v.getContext()).addToRequestQueue(stringRequest);
+
+
+
+                            }
+                        })
+                        .onNegative(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                // TODO
+
+                                String url ="http://booked.16mb.com/DonateBook.php?bid="+booksModel.bid;
+                                Log.d("url",url);
+
+                                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                                        new Response.Listener<String>() {
+                                            @Override
+                                            public void onResponse(String response) {
+                                                // process your response here
+                                                Log.d("response",response);
+                                                Toast.makeText(v.getContext(),"Book is now up for Donate. Refresh to view changes.",Toast.LENGTH_SHORT).show();
+
+                                            }
+                                        }, new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        //perform operation here after getting error
+                                    }
+                                });
+
+                                VolleySingleton.getInstance(v.getContext()).addToRequestQueue(stringRequest);
+
+
+
+                            }
+                        }).show();
+
+            }
+        });
+
+
+
+
+
+
+
+
     }
 
     @Override

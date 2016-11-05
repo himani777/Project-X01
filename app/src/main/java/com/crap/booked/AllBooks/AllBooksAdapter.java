@@ -164,7 +164,6 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.MyView
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(v.getContext());
 
         Log.e("Detailss" , contact );
-
         Log.e("Detailss" , latitude );
         Log.e("Detailss" , longitude );
 
@@ -179,6 +178,7 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.MyView
 
         book_name.setText(bname);
         owner.setText(fn + " " + ln);
+        Log.d("Name",fn + ln + "dsds");
 
        Picasso.with(book_img.getContext()).load(url)
                 //.onlyScaleDown()

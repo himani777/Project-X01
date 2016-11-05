@@ -19,7 +19,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Response;
+import com.crap.booked.ExchangeOrDonate.EnterDetails;
 import com.crap.booked.NetworkServices.AllBooksViaEmail;
 import com.crap.booked.NetworkServices.VolleySingleton;
 import com.crap.booked.R;
@@ -38,10 +41,10 @@ import java.util.List;
 
     String ecopy;
     private static List<BooksData> itemList;
-    private static RecyclerView recyclerView;
+    RecyclerView recyclerView;
     private static AllBooksAdapter mAdapter;
     private static AllBooks allBooks;
-
+    private MaterialDialog dialog;
 
 
 
@@ -62,6 +65,15 @@ import java.util.List;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.all_books, container, false);
+
+        dialog = new MaterialDialog.Builder(view.getContext())
+                .title("Fetching Data")
+                .content("And Its Almost There")
+                .progress(true, 0)
+                .cancelable(false)
+                .show();
+
+
         Bundle bundle = this.getArguments();
         ecopy = bundle.getString("username");
         Log.d("ecopy",ecopy);
@@ -158,6 +170,7 @@ import java.util.List;
                 }
                 finally {
                     mAdapter.notifyDataSetChanged();
+                    dialog.dismiss();
                 }
             }
         };
@@ -167,6 +180,8 @@ import java.util.List;
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         queue.add(a);
         */
+        a.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         VolleySingleton.getInstance(getActivity()).addToRequestQueue(a);
 
 

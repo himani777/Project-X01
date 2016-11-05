@@ -84,7 +84,7 @@ public class TwoAddOptions extends AppCompatActivity {
                             public void onInput(MaterialDialog dialog, CharSequence input) {
                                 Intent intent = new Intent(getBaseContext(), EnterDetails.class);
 
-                                intent.putExtra("ABCD", scanResult);
+                                intent.putExtra("ABCD", input.toString());
                                 Intent i =  getIntent();
                                 String ed = i.getStringExtra("E/D");
                                 Log.e("Tololotot" , value + "  ddd   "+ ed);

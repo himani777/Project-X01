@@ -160,7 +160,7 @@ public class EnterDetails extends AppCompatActivity {
             isbncode = b[0].getString("ABCD");
             Log.d("ABC",isbncode + "isbn ends");
             url = "https://www.googleapis.com/books/v1/volumes?q=isbn:"+isbncode;
-
+            Log.e("uel",url);
             getInfo(url);
         //    dialog.dismiss();
 
