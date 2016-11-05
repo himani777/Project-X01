@@ -3,6 +3,5 @@
     <item android:id="@+id/logout"
         android:title="Logout"
         android:icon="@drawable/ic_power_settings_new_white_18dp"
-        app:showAsAction="collapseActionView|ifRoom"
-        app:actionViewClass="android.support.v7.widget.SearchView" />
+        app:showAsAction="always"/>
 </menu>
