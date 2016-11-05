@@ -62,9 +62,9 @@ public class MyBooks extends android.app.Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.my_books, container, false);
-        ecopy = "goel.rashi48@gmail.com";
+        //ecopy = "goel.rashi48@gmail.com";
         //ecopy = getArguments().getString("username");
-        Log.d("mybooks",ecopy);
+        //Log.d("mybooks",ecopy);
 
         itemList = new ArrayList<>();
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view1);

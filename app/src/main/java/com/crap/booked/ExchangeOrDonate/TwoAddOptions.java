@@ -83,11 +83,14 @@ public class TwoAddOptions extends AppCompatActivity {
                             @Override
                             public void onInput(MaterialDialog dialog, CharSequence input) {
                                 Intent intent = new Intent(getBaseContext(), EnterDetails.class);
+
                                 intent.putExtra("ABCD", scanResult);
                                 Intent i =  getIntent();
                                 String ed = i.getStringExtra("E/D");
                                 Log.e("Tololotot" , value + "  ddd   "+ ed);
                                 intent.putExtra( "ED" , ed );
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                                 startActivity(intent);
                             }
                         }).show();
@@ -155,6 +158,8 @@ public class TwoAddOptions extends AppCompatActivity {
                                                     Intent intent = new Intent(getBaseContext(), EnterDetails.class);
                                                     intent.putExtra("ABCD", scanResult);
                                                     intent.putExtra("ED", value);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                                                     startActivity(intent);
                                                 }
                                             })

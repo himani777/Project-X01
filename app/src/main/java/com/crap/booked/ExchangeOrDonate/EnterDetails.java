@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -36,6 +37,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.crap.booked.Login.Authentication;
 import com.crap.booked.Main.HomeScreen;
 import com.crap.booked.NetworkServices.EnterDetailsRequest;
 import com.crap.booked.Profile.EditDetails;
@@ -130,48 +132,10 @@ public class EnterDetails extends AppCompatActivity {
                     Snackbar.make(getCurrentFocus(),"Login again to enter book details",Snackbar.LENGTH_LONG).show();
                 }
                 else{
-
-
-                    Response.Listener<String> listener = new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            try {
-
-                                JSONObject jsonObject = new JSONObject(response);
-                                boolean success = jsonObject.getBoolean("success");
-                                Log.d("response3",response);
-
-                                if (success) {
-                                    Snackbar.make(getCurrentFocus(),"Succesfully added!",Snackbar.LENGTH_LONG).show();
-
-
-                                    flag =1;
-                                    //newActivity(flag);
-                                /*Intent i = new Intent(getApplication() , HomeScreen.class);
-                                startActivity(i);*/
-
-                                } else {
-                                    Toast.makeText(getApplication(), "Error Occurred! Report or try again later.", Toast.LENGTH_SHORT).show();
-
-                                }
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    };
+                    buildAlertMessage();
 
 
 
-
-
-                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                    Date date = new Date(); //2014/08/06 15:59:48
-                    set = new EnterDetailsRequest(username, p,titleText.getText().toString(),
-                            authorText.getText().toString()  ,value, String.valueOf(dateFormat.format(date)), listener);
-
-                    RequestQueue queue = Volley.newRequestQueue(getApplication());
-                    queue.add(set);
 
                 }
 
@@ -255,6 +219,7 @@ public class EnterDetails extends AppCompatActivity {
                             String check = obj.getString("totalItems");
                             if(check.endsWith("0")){
                                 dialog.dismiss();
+                                dialog.cancel();
                                 new MaterialDialog.Builder(EnterDetails.this)
                                         .title("No Information")
                                         .content("No data for this ISBN. If this information is wrong, do report.")
@@ -298,6 +263,7 @@ public class EnterDetails extends AppCompatActivity {
                             authorText.setText(aut.toString());
                             getImage(ur);
                             dialog.dismiss();
+                            dialog.cancel();
 
 
 
@@ -324,16 +290,96 @@ public class EnterDetails extends AppCompatActivity {
 
     public void newActivity(int flag){
         if(flag==1){
-            Intent i = new Intent(this,HomeScreen.class);
+            Intent i = new Intent(this,Authentication.class);
+
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
             startActivity(i);
         }
     }
 
 
 
+    private void buildAlertMessage() {
+        String x;
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if(value.equals("E")){
+            x = "Exchange";
+        }
+        else{
+            x = "Donate";
+        }
+        builder.setMessage("Would you like to let it for "+x+ "?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
 
 
+                        Response.Listener<String> listener = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+
+                                    JSONObject jsonObject = new JSONObject(response);
+                                    boolean success = jsonObject.getBoolean("success");
+                                    Log.d("response3",response);
+
+                                    if (success) {
+                                        Snackbar.make(getCurrentFocus(),"Succesfully added!",Snackbar.LENGTH_LONG).show();
+
+
+                                        flag =1;
+                                        newActivity(flag);
+
+
+
+                                    } else {
+                                        Toast.makeText(getApplication(), "Error Occurred! Report or try again later.", Toast.LENGTH_SHORT).show();
+
+                                    }
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        };
+
+
+
+
+
+                        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                        Date date = new Date(); //2014/08/06 15:59:48
+                        set = new EnterDetailsRequest(username, p,titleText.getText().toString(),
+                                authorText.getText().toString()  ,value, String.valueOf(dateFormat.format(date)), listener);
+
+                        RequestQueue queue = Volley.newRequestQueue(getApplication());
+                        queue.add(set);
+
+
+                        dialog.dismiss();
+                        dialog.cancel();
+
+
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        dialog.cancel();
+                    }
+                });
+        final AlertDialog alert = builder.create();
+        alert.show();
+    }
 
 
 
 }
+
+
+
+
+
+
+
+
