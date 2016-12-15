@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.crap.booked">
+    package="com.street35.booked">
 
     <permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" android:protectionLevel="signature"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -18,16 +18,16 @@
         android:supportsRtl="true"
         android:launchMode="singleTop"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main.BottomNavigation">
+        <activity android:name="com.street35.booked.Main.BottomNavigation">
           <!--  <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
-        <activity android:name=".NetworkServices.NotConnected"></activity>
+        <activity android:name="com.street35.booked.NetworkServices.NotConnected"></activity>
 
-        <activity android:name=".Login.Authentication">
+        <activity android:name="com.street35.booked.Login.Authentication">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,9 +35,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Profile.EditDetails" />
-        <activity android:name=".ExchangeOrDonate.TwoAddOptions"/>
-        <activity android:name=".ExchangeOrDonate.EnterDetails"/>
+        <activity android:name="com.street35.booked.Profile.EditDetails" />
+        <activity android:name="com.street35.booked.ExchangeOrDonate.TwoAddOptions"/>
+        <activity android:name="com.street35.booked.ExchangeOrDonate.EnterDetails"/>
 
         <uses-library android:name="com.google.android.maps" />
 
@@ -54,7 +54,7 @@
             android:value="@string/google_maps_key" />
 
        <activity
-            android:name=".NearbyBooks.MapsActivity"
+            android:name="com.street35.booked.NearbyBooks.MapsActivity"
             android:label="@string/title_activity_maps">
 
         </activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
