@@ -95,6 +95,18 @@ public class Authentication extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+        boolean conn = isConnected(getApplicationContext());
+        Log.d("abs", String.valueOf(conn));
+        if (!conn) {
+            Intent i = new Intent(this, NotConnected.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+            startActivity(i);
+            finish();
+
+        }
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -119,7 +131,8 @@ public class Authentication extends AppCompatActivity
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
              //   .requestScopes(new Scope(Scopes.PLUS_LOGIN))
              //   .requestScopes(new Scope(Scopes.PLUS_ME))
-               .requestIdToken(getString(R.string.default_web_client_id))
+              // .requestIdToken(getString(R.string.default_web_client_id))
+                .requestIdToken(Authentication.this.getResources().getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -127,6 +140,8 @@ public class Authentication extends AppCompatActivity
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                //.addConnectionCallbacks((GoogleApiClient.ConnectionCallbacks) this)
+                .addOnConnectionFailedListener(this)
                 .build();
 
 
@@ -541,7 +556,7 @@ public class Authentication extends AppCompatActivity
     }
 
     private void updateUI(boolean isSignedIn) {
-        if (isSignedIn) {
+        if (true) {
             //Sign In True
             Intent i = new Intent(Authentication.this, UserInfo.class);
             startActivity(i);

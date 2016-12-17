@@ -5,7 +5,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -18,10 +21,14 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.street35.booked.Main.BottomNavigation;
+import com.street35.booked.NetworkServices.NotConnected;
 import com.street35.booked.R;
 
-public class NearbyBooks extends android.app.Fragment {
+public class NearbyBooks extends android.app.Fragment implements
+        GoogleApiClient.OnConnectionFailedListener {
 
     int PERMISSION_ACCESS_COARSE_LOCATION = 1;
     static NearbyBooks nearbyBooks =null;
@@ -64,6 +71,18 @@ public class NearbyBooks extends android.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v =inflater.inflate(R.layout.main_map_fragment , container , false);
+        boolean conn = isConnected(getActivity());
+
+
+        if (!conn) {
+            Intent i = new Intent(getActivity(), NotConnected.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+            startActivity(i);
+
+
+        }
 
 
         //Ads
@@ -147,4 +166,20 @@ public class NearbyBooks extends android.app.Fragment {
         alert.show();
     }
 
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        Intent i = new Intent(getActivity(), NotConnected.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        startActivity(i);
+
+
+    }
+
+    public static boolean isConnected(Context context){
+        ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork!=null && activeNetwork.isConnectedOrConnecting();
+    }
 }

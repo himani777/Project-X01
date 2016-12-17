@@ -1,8 +1,12 @@
 package com.street35.booked.MyBooks;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,9 +21,12 @@ import android.view.ViewGroup;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Response;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.street35.booked.AllBooks.BooksData;
 import com.street35.booked.AllBooks.UserBooksAdapter;
 import com.street35.booked.NetworkServices.MyBooksViaEmail;
+import com.street35.booked.NetworkServices.NotConnected;
 import com.street35.booked.NetworkServices.VolleySingleton;
 import com.street35.booked.R;
 
@@ -31,7 +38,7 @@ import java.util.List;
 /**
  * Created by Rashi on 20-08-2016.
  */
-public class MyBooks extends android.app.Fragment{
+public class MyBooks extends android.app.Fragment implements GoogleApiClient.OnConnectionFailedListener{
 
 
     String ecopy;
@@ -62,6 +69,7 @@ public class MyBooks extends android.app.Fragment{
         //ecopy = "goel.rashi48@gmail.com";
         //ecopy = getArguments().getString("username");
         //Log.d("mybooks",ecopy);
+        boolean conn = isConnected(getActivity());
 
 
         dialog = new MaterialDialog.Builder(view.getContext())
@@ -70,6 +78,20 @@ public class MyBooks extends android.app.Fragment{
                 .progress(true, 0)
                 .cancelable(false)
                 .show();
+
+
+        if (!conn) {
+            Intent i = new Intent(getActivity(), NotConnected.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            getFragmentManager().popBackStack();
+            dialog.dismiss();
+            startActivity(i);
+
+
+        }
+
+
 
         itemList = new ArrayList<>();
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view1);
@@ -246,6 +268,23 @@ public class MyBooks extends android.app.Fragment{
     public void onResume() {
         super.onResume();
 
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        Intent i = new Intent(getActivity(), NotConnected.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        dialog.dismiss();
+        startActivity(i);
+
+
+    }
+
+    public static boolean isConnected(Context context){
+        ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork!=null && activeNetwork.isConnectedOrConnecting();
     }
 
 

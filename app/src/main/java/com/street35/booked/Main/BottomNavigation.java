@@ -167,46 +167,46 @@ public class BottomNavigation extends AppCompatActivity {
 
                         if(fragmentManager.findFragmentByTag("2") != null) {
                             //if the fragment exists, show it.
-                            fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag("2")).commit();
+                            fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag("2")).addToBackStack(null).commit();
                         } else {
                             //if the fragment does not exist, add it to fragment manager.
 
 
 
                             HomeScreen hs = HomeScreen.newInstance();
-                            fragmentManager.beginTransaction().add(R.id.fragmentContainer, hs, "2").commit();
+                            fragmentManager.beginTransaction().add(R.id.fragmentContainer, hs, "2").addToBackStack(null).commit();
                         }
 
                         break;
 
                     case 3 :
                         if(position == last_position) break;
-                        fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag(last_position+"")).commit();
+                        fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag(last_position+"")).addToBackStack(null).commit();
                         last_position = position;
 
 
                         if(fragmentManager.findFragmentByTag("3") != null) {
                             //if the fragment exists, show it.
-                            fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag("3")).commit();
+                            fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag("3")).addToBackStack(null).commit();
                         } else {
                             //if the fragment does not exist, add it to fragment manager.
 
 
                             MyBooks mb = MyBooks.newInstance();
-                            fragmentManager.beginTransaction().add(R.id.fragmentContainer, mb, "3").commit();
+                            fragmentManager.beginTransaction().add(R.id.fragmentContainer, mb, "3").addToBackStack(null).commit();
                         }
 
                         break;
 
                     case 4 :
                         if(position == last_position) break;
-                        fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag(last_position+"")).commit();
+                        fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag(last_position+"")).addToBackStack(null).commit();
                         last_position = position;
 
 
                         if(fragmentManager.findFragmentByTag("4") != null) {
                             //if the fragment exists, show it.
-                            fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag("4")).commit();
+                            fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag("4")).addToBackStack(null).commit();
                         } else {
                             //if the fragment does not exist, add it to fragment manager.
 
@@ -214,7 +214,7 @@ public class BottomNavigation extends AppCompatActivity {
 
                             ProfileFragment pf = ProfileFragment.newInstance();
 
-                            fragmentManager.beginTransaction().add(R.id.fragmentContainer, pf, "4").commit();
+                            fragmentManager.beginTransaction().add(R.id.fragmentContainer, pf, "4").addToBackStack(null).commit();
                         }
 
                         break;
