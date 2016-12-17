@@ -15,6 +15,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.street35.booked.Main.BottomNavigation;
 import com.street35.booked.R;
 
 public class NearbyBooks extends android.app.Fragment {
@@ -31,10 +35,28 @@ public class NearbyBooks extends android.app.Fragment {
         return nearbyBooks;
     }
 
+    InterstitialAd mInterstitialAd;
+
+
+
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("19958886412D28A5FFC7BA20F66C6FF5")
+                .build();
+        mInterstitialAd.loadAd(adRequest);
+
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
+
+
 
     }
 
@@ -43,11 +65,26 @@ public class NearbyBooks extends android.app.Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v =inflater.inflate(R.layout.main_map_fragment , container , false);
 
+
+        //Ads
+        mInterstitialAd = new InterstitialAd(this.getActivity());
+        mInterstitialAd.setAdUnitId("ca-app-pub-7027418412989558/5138339023");
+        requestNewInterstitial();
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+            }
+        });
+
         getActivity().setTitle("Nearby Books");
         Button b = (Button) v.findViewById(R.id.faltuButton);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                }
                 if (!statusCheck()) {
                     // Snackbar.make(v, "Enable Location Services", Snackbar.LENGTH_LONG).show();
                     Toast.makeText(getActivity(),"Enable Location Services ",Toast.LENGTH_LONG).show();

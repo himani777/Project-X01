@@ -1,5 +1,7 @@
 package com.street35.booked.AllBooks;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -63,9 +65,16 @@ import java.util.List;
                 .cancelable(false)
                 .show();
 
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
+        String ecopy =  sharedPreferences.getString("email","");
 
-        Bundle bundle = this.getArguments();
-        ecopy = bundle.getString("username");
+
+
+
+        System.out.println(ecopy);
+        Log.d("eeeeeeeeeeeeeee",ecopy);
+
+
         Log.d("ecopy",ecopy);
 
         itemList= new ArrayList<>();

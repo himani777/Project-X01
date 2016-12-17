@@ -78,7 +78,7 @@ public class MyBooks extends android.app.Fragment{
 //        ecopy = getArguments().getString("email");
 
        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
-        String ecopy =  sharedPreferences.getString("username","");
+        String ecopy =  sharedPreferences.getString("email","goel.rashi48@gmail.com");
 
 
         System.out.println(ecopy);

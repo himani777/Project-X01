@@ -1,7 +1,9 @@
 package com.street35.booked.Main;
 
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -52,16 +54,12 @@ public class HomeScreen extends android.app.Fragment implements View.OnClickList
 
         getActivity().setTitle("Home");
 
-        /*SharedPreferences sharedPreferences = this.getActivity().getPreferences(Context.MODE_PRIVATE);
-        String ecopy =  sharedPreferences.getString("username","");
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
+        String ecopy =  sharedPreferences.getString("email","");
 
 
-        System.out.println(ecopy);
-        Log.d("eeeeeeeeeeeeeee",ecopy);
-        Log.d("abababababab","abababababba");*/
 
-        Bundle bundle = this.getArguments();
-        String ecopy = bundle.getString("username");
+
         System.out.println(ecopy);
         Log.d("eeeeeeeeeeeeeee",ecopy);
 

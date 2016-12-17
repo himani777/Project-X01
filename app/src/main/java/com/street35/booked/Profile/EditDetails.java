@@ -57,7 +57,7 @@ public class EditDetails extends AppCompatActivity {
         toolbar.setTitle("Profile");
 
         SharedPreferences sharedPreferences = getSharedPreferences("Login",Context.MODE_PRIVATE);
-        s =  sharedPreferences.getString("email","");
+        s =  sharedPreferences.getString("email","goel.rashi48@gmail.com");
         Log.d("Email Id : ",s);
 
 
@@ -107,6 +107,7 @@ public class EditDetails extends AppCompatActivity {
                     SharedPreferences.Editor editor1 = preferences.edit();
                     editor1.putString("latitude",String.valueOf(lat));
                     editor1.putString("longitude",String.valueOf(lng));
+                    editor1.commit();
 
 
 
@@ -129,6 +130,8 @@ public class EditDetails extends AppCompatActivity {
                                         editor.putString("contact", d1);
                                         editor.putString("fname", d4);
                                         editor.putString("lname", d5);
+                                        editor.putString("sex",sex);
+                                        editor.commit();
 
                                         flag = 1;
                                     } else {
@@ -192,11 +195,11 @@ public class EditDetails extends AppCompatActivity {
 
 
 
+        Log.d("sc hdsc",University);
 
 
 
-
-        fname.setText(First_name);
+                        fname.setText(First_name);
                         lname.setText(Last_name);
                         if(Sex.endsWith("0")) male.setChecked(true);
                         else

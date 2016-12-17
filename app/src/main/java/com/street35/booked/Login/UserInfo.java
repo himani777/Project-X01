@@ -39,12 +39,15 @@ public class UserInfo extends AppCompatActivity {
     String fname,lname,email;
     String add,con,uni;
     SharedPreferences sharedPref;
+    SharedPreferences sharedPreferences;
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         setContentView(R.layout.user_info);
         super.onCreate(savedInstanceState);
 
         sharedPref=getSharedPreferences("Login", Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("Location", Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor1 = sharedPreferences.edit();
         final SharedPreferences.Editor editor = sharedPref.edit();
 
 
@@ -63,13 +66,14 @@ public class UserInfo extends AppCompatActivity {
                 if (TextUtils.isEmpty(add) && TextUtils.isEmpty(con)) {
                     Snackbar.make(getCurrentFocus(), "Enter details", Snackbar.LENGTH_LONG).show();
                 } else {
-                    editor.putString("address", add);
-                    editor.putString("university", uni);
-                    editor.putString("contact", con);
+
 
                     fname = sharedPref.getString("fname", "NoValue");
                     lname = sharedPref.getString("lname", "NoValue");
-                    email = sharedPref.getString("goel.rashi48@gmail.com", "NoValue");
+                    email = sharedPref.getString("email", "goel.rashi48@gmail.com");
+                    //email = "goel.rashi48@gmail.com";
+
+                    Log.d("eeeeemmmmmmmllll",email);
 
 
                     Geocoder coder = new Geocoder(getApplicationContext());
@@ -82,6 +86,9 @@ public class UserInfo extends AppCompatActivity {
                         double lng = location.getLongitude();
                         Log.i("Lat", "" + lat);
                         Log.i("Lng", "" + lng);
+                        editor1.putString("latitude",String.valueOf(lat));
+                        editor1.putString("longitude",String.valueOf(lng));
+                        editor1.commit();
 
 
                         Response.Listener<String> listener = new Response.Listener<String>() {
@@ -97,6 +104,12 @@ public class UserInfo extends AppCompatActivity {
                                     Log.d(response, response);
                                     if (success) {
                                         Toast.makeText(getApplicationContext(), "Updated Successfully", Toast.LENGTH_SHORT).show();
+                                        editor.putString("address", add);
+                                        editor.putString("university", uni);
+                                        editor.putString("contact", con);
+                                        editor.putString("sex","2");
+                                        editor.commit();
+                                        Log.d("ffffffffffffffffff",fname+lname+uni+con+add+"2"+email);
 
                                         Intent i = new Intent(UserInfo.this, BottomNavigation.class);
                                         startActivity(i);
@@ -110,7 +123,9 @@ public class UserInfo extends AppCompatActivity {
                             }
                         };
 
-                        EditProfileRequest profileRequest = new EditProfileRequest(fname, lname, uni, con, add, "0",
+
+
+                        EditProfileRequest profileRequest = new EditProfileRequest(fname, lname, uni, con, add, "2",
                                 email, String.valueOf(lat), String.valueOf(lng), listener);
 
                         VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(profileRequest);
