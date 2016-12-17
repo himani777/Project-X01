@@ -1,29 +1,27 @@
 {
   "project_info": {
-    "project_number": "986254172050",
-    "project_id": "booked-3e5e1"
+    "project_number": "122997367136",
+    "firebase_url": "https://booked-68f02.firebaseio.com",
+    "project_id": "booked-68f02",
+    "storage_bucket": "booked-68f02.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:986254172050:android:98a2cfe88781e916",
+        "mobilesdk_app_id": "1:122997367136:android:17b460506dc8077f",
         "android_client_info": {
           "package_name": "com.street35.booked"
         }
       },
       "oauth_client": [
         {
-          "client_id": "986254172050-62ftmpj91am584hlolk4kvr8qem1hlma.apps.googleusercontent.com",
-          "client_type": 3,
-		  "android_info": {
-				"package_name": "com.street35.booked"
-				
-						}
+          "client_id": "122997367136-f55sjmv0eiuasmshk7js1gc7b7se8637.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDAl4v698kqs3fRmrDcCSxYosGJn33i7DA"
+          "current_key": "AIzaSyAY5ZfeWrbD4BMj_4RgoWTayThXtgwBKH8"
         }
       ],
       "services": {
@@ -31,11 +29,16 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122997367136-f55sjmv0eiuasmshk7js1gc7b7se8637.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }

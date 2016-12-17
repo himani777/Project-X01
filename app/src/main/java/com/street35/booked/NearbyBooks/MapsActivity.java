@@ -21,6 +21,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Response;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.street35.booked.NetworkServices.LatLongViaEmail;
 import com.street35.booked.NetworkServices.VolleySingleton;
 import com.street35.booked.R;
@@ -59,6 +62,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     Location location = null;
 
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +75,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         toolbar.setTitle("Maps");
 
 
-        mylocation = (FloatingActionButton) findViewById(R.id.fab12);
+
+
+
+
+
+
+
+
+
+
+
+            mylocation = (FloatingActionButton) findViewById(R.id.fab12);
         navigation = (FloatingActionButton) findViewById(R.id.fab123);
 
         // mapView= (MapView)v.findViewById(R.id.mapview);
@@ -105,45 +122,47 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mylocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplication(), "SDsdsdsdsdsdsdsd", Toast.LENGTH_LONG).show();
-                // Location location = null;
 
-                locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                LatLng cl = null;
-                try {
-                    if (ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        // TODO: Consider calling
-                        //    ActivityCompat#requestPermissions
-                        // here to request the missing permissions, and then overriding
-                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                        //                                          int[] grantResults)
-                        // to handle the case where the user grants the permission. See the documentation
-                        // for ActivityCompat#requestPermissions for more details.
-                        ActivityCompat.requestPermissions((Activity) getApplicationContext(), new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 200);
 
-                        return;
+                    Toast.makeText(getApplication(), "SDsdsdsdsdsdsdsd", Toast.LENGTH_LONG).show();
+                    // Location location = null;
+
+                    locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                    LatLng cl = null;
+                    try {
+                        if (ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                            // TODO: Consider calling
+                            //    ActivityCompat#requestPermissions
+                            // here to request the missing permissions, and then overriding
+                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                            //                                          int[] grantResults)
+                            // to handle the case where the user grants the permission. See the documentation
+                            // for ActivityCompat#requestPermissions for more details.
+                            ActivityCompat.requestPermissions((Activity) getApplicationContext(), new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 200);
+
+                            return;
+                        }
+
+                        if (googleApiClient == null) Log.d("sdsds", "Google Client API nullllllll");
+                        else Log.d("sdsdsd", "khghjhhjhjkhkjjhkjhkhkhkjhkjhkjhkjhhkjhkjh");
+
+                        location = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
+                        System.out.println(location);
+
+
+                        // Log.d("gegege" , location.getLatitude() + " +++++++ " + location.getLongitude() );
+                    } catch (IllegalArgumentException e) {
+                        Log.d("dsds", "Error no sqe");
+                    }
+                    if (location == null) {
+                        Log.d("dsds", "Location null of fab clicked");
+                    } else {
+                        cl = new LatLng(location.getLatitude(), location.getLongitude());
+                        if (cl != null)
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(cl, 15));
                     }
 
-                    if (googleApiClient == null) Log.d("sdsds", "Google Client API nullllllll");
-                    else Log.d("sdsdsd", "khghjhhjhjkhkjjhkjhkhkhkjhkjhkjhkjhhkjhkjh");
-
-                    location = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
-                    System.out.println(location);
-
-
-                    // Log.d("gegege" , location.getLatitude() + " +++++++ " + location.getLongitude() );
-                } catch (IllegalArgumentException e) {
-                    Log.d("dsds", "Error no sqe");
                 }
-                if (location == null) {
-                    Log.d("dsds", "Location null of fab clicked");
-                } else {
-                    cl = new LatLng(location.getLatitude(), location.getLongitude());
-                    if (cl != null)
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(cl, 15));
-                }
-
-            }
 
 
         });
