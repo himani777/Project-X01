@@ -88,7 +88,7 @@ public class Authentication extends AppCompatActivity
         setContentView(R.layout.login);
 
         SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
-        signInButton.setSize(SignInButton.SIZE_STANDARD);
+        signInButton.setSize(SignInButton.SIZE_WIDE);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
              //   .requestScopes(new Scope(Scopes.PLUS_LOGIN))
@@ -391,12 +391,19 @@ public class Authentication extends AppCompatActivity
 
             Log.e(TAG, "display name: " + acct.getDisplayName());
 
-            String personName = acct.getDisplayName();
+            String personName = acct.getGivenName();
             String personPhotoUrl = acct.getPhotoUrl().toString();
             String email = acct.getEmail();
+            String lastName = acct.getFamilyName();
+
 
             Log.e(TAG, "Name: " + personName + ", email: " + email
                     + ", Image: " + personPhotoUrl);
+            SharedPreferences sharedPref = this.getSharedPreferences("Login", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString("email", email);
+            editor.putString("fname", personName);
+            editor.putString("lname",lastName);
 
 /*
             Glide.with(getApplicationContext()).load(personPhotoUrl)
@@ -461,10 +468,9 @@ public class Authentication extends AppCompatActivity
     }
 
     private void updateUI(boolean isSignedIn) {
-        if (isSignedIn) {
+        if (true) {
             //Sign In True
-            Intent i = new Intent(Authentication.this, BottomNavigation.class);
-            i.putExtra("username", "a@a.com");
+            Intent i = new Intent(Authentication.this, UserInfo.class);
             startActivity(i);
         } else {
 

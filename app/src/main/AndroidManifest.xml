@@ -13,7 +13,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logohdpi"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:launchMode="singleTop"
@@ -38,6 +38,7 @@
         <activity android:name="com.street35.booked.Profile.EditDetails" />
         <activity android:name="com.street35.booked.ExchangeOrDonate.TwoAddOptions"/>
         <activity android:name="com.street35.booked.ExchangeOrDonate.EnterDetails"/>
+        <activity android:name="com.street35.booked.Login.UserInfo"/>
 
         <uses-library android:name="com.google.android.maps" />
 
