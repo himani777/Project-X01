@@ -17,6 +17,6 @@ public class BooksData {
               book_description ,
               book_exchange_donate,
               book_date_posted;
-      public int bid;
+      public int bid, viewType;
 
 }

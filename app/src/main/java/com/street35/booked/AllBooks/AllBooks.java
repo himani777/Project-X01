@@ -30,7 +30,7 @@ import java.util.List;
 
 
     String ecopy;
-    private static List<BooksData> itemList;
+    static List<BooksData> itemList;
     RecyclerView recyclerView;
     private static AllBooksAdapter mAdapter;
     private static AllBooks allBooks;
@@ -40,9 +40,7 @@ import java.util.List;
 
 
     public static AllBooks newInstance() {
-
         if(allBooks!=null) return allBooks;
-
         allBooks= new AllBooks();
         return allBooks;
     }
@@ -150,10 +148,16 @@ import java.util.List;
 
                         }
                         item.book_date_posted = j.getString(9);
+                        item.viewType=1;
                         itemList.add(item);
 
                         Log.d("bookname",item.book_name);
 
+                        if(i%5==4){
+                            BooksData bd = new BooksData();
+                            bd.viewType=2;
+                            itemList.add(bd);
+                        }
 
 
                     }
@@ -183,6 +187,7 @@ import java.util.List;
 
 
         mAdapter.notifyDataSetChanged();
+
 
 
 
@@ -261,12 +266,6 @@ import java.util.List;
         Log.e("Errorrr", "11111111111");
         Log.e("Errorrr", "Erorrrrrrrrr");
         Log.e("Errorrr", "Erorrrrrrrrr");
-        Log.e("Errorrr", "Erorrrrrrrrr");
-        Log.e("Errorrr", "Erorrrrrrrrr");
-        Log.e("Errorrr", "Erorrrrrrrrr");
-        Log.e("Errorrr", "Erorrrrrrrrr");
-        Log.e("Errorrr", "Erorrrrrrrrr");
-
     }
 
     @Override
@@ -274,8 +273,6 @@ import java.util.List;
         super.onDestroyView();
 
         Log.e("Errorrr", "2222222222");
-        Log.e("Errorrr", "Erorrrrrrrrr");
-        Log.e("Errorrr", "Erorrrrrrrrr");
         Log.e("Errorrr", "Erorrrrrrrrr");
         Log.e("Errorrr", "Erorrrrrrrrr");
     }
@@ -286,7 +283,5 @@ import java.util.List;
         Log.e("Errorrr", "33333333333");
         Log.e("Errorrr", "Erorrrrrrrrr");
         Log.e("Errorrr", "Erorrrrrrrrr");
-
-
     }
 }
