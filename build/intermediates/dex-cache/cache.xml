@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-10.0.1_8757a0342973eeaeef8880742f16e8c8f9b76f3d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\me.zhanghai.android.materialprogressbar\library\1.1.7\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1478a113f04bf0b679037b4f6bd88bd1837b96a3">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\me.zhanghai.android.materialprogressbar-library-1.1.7_7b445c79904ac18c376b6eed0c2679ce029cac3b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_2d88afe325536401f889a845c78b0d12ad4bcb4a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_d491819d2786c1ef961a684c1997b83a09d84b08\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.1_f2fa94af1945fde07e3705c9647a7fb8dd2064ac\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\0.7.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c4334f20001e3ceaa00b203290961224aca8744f">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.fresco-fresco-0.7.0_e12338177663a081d9f7594171a2e431ff8f42f0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4b6970b96c0c9413a13fb38e8f7bc87f2485a78e">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_e39cb279368b8a68467a4d38ebce2d3e2bfa3194\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_843fff7d03f8c01abce032c019969d0be0a13065\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_81aef573e9401ff38e3132b563a6b7ec62fd003a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\library-2.4.0_3a7956e6405f9a8cf37ef3feb13e8049d04137c9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\me.dm7.barcodescanner\core\1.8.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="96c83d4de6289a3f674165f896ac992564a7138d">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\me.dm7.barcodescanner-core-1.8.2_5b39b0eaa6e789bcf23f1fb5c23f30a5301fbe2c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_d7bcab7be926e07d41b230531e358385be3c3df5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.github.devlight\infinitecycleviewpager\1.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="cc61adad791b96c2e793e87d6d3f3d073e02ada1">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.devlight-infinitecycleviewpager-1.0.2_a2ff539b4587ac16a27083f06208ab21c277dfba\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-10.0.1_56e83ebecf8dcbe160bdd932bd8b11619912cf91\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="dfecc4d835cdabcdecf7e95f0d20a3ef1e9d8ef4">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-8.4.0_d651b38998877e292b825c427182ca8b8488a98e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-10.0.1_87521a113950ea375d68d82deace6cf7e43b79b6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_dd21881b86e008e109c2214991147a728b57697d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\.gradle\caches\modules-2\files-2.1\org.greenrobot\eventbus\3.0.0\ddd99896e9569eaababbe81b35d80e1b91c4ad85\eventbus-3.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ddd99896e9569eaababbe81b35d80e1b91c4ad85">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\eventbus-3.0.0_42e33149181d0d2da64fac18d698dd4abbf37e35\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.0.1_579cf0db23a61fe788ec069af9eb76899cd11e78\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.eftimoff\android-viewpager-transformers\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4e23b78a184d3262fded46f4799f3b529aaca5b1">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.eftimoff-android-viewpager-transformers-1.0.1_055a5515bda5ccf25969dfac3c990befed53849e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.1_82ac16413d7f81fd62ba839d2b8a85140508ff03\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.roughike\bottom-bar\1.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9dd08a0718f3c970caefd7c77f78726a50845655">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.roughike-bottom-bar-1.2.1_4db506b03868b972129e14df1383f9658c824110\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="57c2eceb8548de84509d1ebc293fedec53231f6c">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-10.0.1_7d78482d9751ef3cc3db9c89da07d414bdc0bb14\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_92b817c05da20ac80c000dfd2497557836dab74c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_ba03543e6848f371521131befb6e2cd2dc092c37\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-alpha9\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f2b64f6a762f61a2379d6a79af03e2ee56eefe0b">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support.constraint-constraint-layout-1.0.0-alpha9_c76f693611205478a63cf0584d09a3905a9a09e3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_8bd1672a50025fcc7f6c3875700a9c1a02ae5090\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.1_3e9b74a9c7fc9407e81037098de086b43b593ef2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_5a963947aaaac868a5ea4ff610c3b341a444b768\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\1.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\de.hdodenhof-circleimageview-1.3.0_2e0feb91f19f3c581aa0f2a19bbf2f74ddcc22ce\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_e33ec4df5f5b0f05347bc74582d28a30cf04f326\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_0c609c96ef9f3b861539feb38489e16c64f1e112\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-multidex-1.0.1_0f00a1b931494d367c3a50886e46449a588962ae\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_b7e5dc7209d1de7c54c1d3b87631c3dd18d086f9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\0.7.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="956a7969705640c8790b983aaa7ff805dff80cf6">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.fresco-drawee-0.7.0_b40fdca66e86147f10dbbe8991c1ec223723292e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_3f570ca933d26bd9f4d89c93fd0112ae24faf1c7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_139474832459a15469cb1dd80bb8c3a948369171\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_6fc558b18c41b96211ac0ef71ba3294f7b6ff795\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_101d39a05ffb63f0e22e38b07758b616f70cb0fa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_4eae4cf236ddb6f33b1803c34b4170d7cb142f0d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-alpha9\constraint-layout-solver-1.0.0-alpha9.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6a908fd0803cc5f65b007101002aec06dc7544da">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.0-alpha9_f9c8c80e24d9ea095cbca5429abb1f789233de38\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.makeramen\roundedimageview\2.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="814fc0c3ec69a944add398217d90077301501a74">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.makeramen-roundedimageview-2.2.1_2cf82513085440eae92bbc134d1da254873e46fe\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_d31320ffb88e38952bb9cd391f4257a5f940ada0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c5e6490573cd2cc8018417f60ddd251138b6ed61">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-24.2.1_fbe04682f18b27820d12cd108ba2459faf407c62\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.aurelhubert\ahbottomnavigation\1.3.3\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4234bd96344a30c7130d4bd89f3ab9116c30931b">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.aurelhubert-ahbottomnavigation-1.3.3_4969d1871b7b1cc296b095590ab56723eb528c9f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d0460bf07cc3657e0be518ca01c174493951c6b8">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-10.0.1_2edfe7759384d68101c14cd65e7d7d2c3ff32fc2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\0.7.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7eb126039737b3ada03141cba019d2c385cceca8">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.fresco-fbcore-0.7.0_e25cd35d395a16aad888480b749b63b179a55f16\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1d193729baf37df3d902a423291423a0df7e3779">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-10.0.1_7786abce03ee5c02b99ac506d8f06668233d8185\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_58c881115dd6cbbf2bf6b28f61f5832c760c0e27\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.afollestad.material-dialogs\core\0.9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d3f8ab57967a9149262ad36a46477fc2515f6ac8">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.afollestad.material-dialogs-core-0.9.0.2_d3bf7ff79fa6a55febab173374e5e9a4adf397e3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\me.dm7.barcodescanner\zbar\1.8.2\jars\libs\zbar.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7bbdf7ba57a8a157c0cad51e455609c70887812e">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\zbar_8cccff0f72e5afed4161085dfc447c96c268eabf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_fd2b909f191042c60f8c68423bd8631c2d1a8d28\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\0.7.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a31fd4d68ac17ad1988f4b44eed1f69327315a55">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.fresco-imagepipeline-0.7.0_c7db2a1f3357cdca4c8ddfd77b6f368b863030a4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="22b83d676656b339702b4858b8e34838aae21a34">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_a1d787a684c6be77ccbb103f06c31e5a427db080\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.4\129874135e6081269ace2312092031558865de12\bolts-android-1.1.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-android-1.1.4_3b733edf07eb03f83359f4d56b5a16ad76d976ba\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_4d6006a836201e6caa3ecf987bdbb8c0b84f6c7c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.edwardvanraak\MaterialBarcodeScanner\0.0.6-ALPHA\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="52734af07d103e5251d63f18ff9d88aa94a16425">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.edwardvanraak-MaterialBarcodeScanner-0.0.6-ALPHA_fdbd73542bc0bfbfacfa9ccab2655fad78556750\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\me.dm7.barcodescanner\zbar\1.8.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="15f1c7a4c01dd95b6da8c5acfaf42d2075d1ae2a">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\me.dm7.barcodescanner-zbar-1.8.2_fe0c818eb3a62b686c9a85111eaf4926ad24b79f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_f12f5bfc5b4a140079a596baaeb2dc60088d95a7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-10.0.1_d9c1e059efbc59741346e77a40d2d9b508d6a355\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="de29a39f9260f88151b1ef453140e71c76b6c415">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-10.0.1_ff28e3d41ec5ee24f6793129809f0058eb41f282\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_9da6fa111c73f4fba734f4a1b8c273af4ee6c8a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="C:\Users\hp\Documents\GitHub\Project-X01\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.volley-volley-1.0.0_22c77b849b85eaee7774ad6be155e2ad6588deb1\classes.dex" />
+    </item>
+
+</items>
