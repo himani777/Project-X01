@@ -48,6 +48,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.street35.booked.Main.BottomNavigation;
 import com.street35.booked.NetworkServices.EmailExist;
+import com.street35.booked.NetworkServices.LoginDetailsCheck;
 import com.street35.booked.NetworkServices.NotConnected;
 import com.street35.booked.NetworkServices.RegisterUser;
 import com.street35.booked.NetworkServices.VolleySingleton;
@@ -423,12 +424,86 @@ public class Authentication extends AppCompatActivity
 
             Log.e(TAG, "display name: " + acct.getDisplayName());
 
-            String personName = acct.getDisplayName();
+            final String personName = acct.getGivenName();
             String personPhotoUrl = acct.getPhotoUrl().toString();
-            String email = acct.getEmail();
+            final String email = acct.getEmail();
+            final String lastName = acct.getFamilyName();
 
             Log.e(TAG, "Name: " + personName + ", email: " + email
                     + ", Image: " + personPhotoUrl);
+            Toast.makeText(getBaseContext(), personName ,Toast.LENGTH_LONG).show();
+
+
+
+            final Response.Listener<String> listener = new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    try {
+                        Log.d(TAG, response);
+                        JSONObject jsonObject = new JSONObject(response);
+                        if (jsonObject.getBoolean("success")) {
+
+
+                            Log.d(TAG,"Json bro");
+
+                            SharedPreferences sharedPref = getSharedPreferences("Login", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.putString("email", email);
+                            editor.putString("fname", personName);
+                            editor.putString("lname",lastName);
+                            editor.apply();
+
+                            //String s = sharedPref.getString("username", "NoValue");
+
+                            if(jsonObject.getString("university").equals("null") ||
+                                 jsonObject.getString("contact") == null ||
+                                    jsonObject.getString("Address") == null
+                                    ){
+
+                                Log.d(TAG,"Json in");
+                             //   Snackbar.make(getCurrentFocus(), "Fill The Details To Continue !", Snackbar.LENGTH_LONG).show();
+                                Intent i = new Intent(Authentication.this, UserInfo.class);
+                                startActivity(i);
+                                finish();
+
+
+                            }else{
+
+                                Log.d(TAG,"Json else");
+                              //  Snackbar.make(getCurrentFocus(), "Welcome buddy !", Snackbar.LENGTH_LONG).show();
+                                Intent i = new Intent(Authentication.this, BottomNavigation.class);
+                                startActivity(i);
+                                finish();
+                            }
+
+                        } else {
+
+                            Log.d(TAG,"Json elseeeee");
+                            Log.d("bc", "ls" + response + "ls");
+                           // Snackbar.make(getCurrentFocus(), "Email Not Registered" + response, Snackbar.LENGTH_LONG).show();
+
+                           // Snackbar.make(getCurrentFocus(), "Fill The Details To Continue !", Snackbar.LENGTH_LONG).show();
+                            Intent i = new Intent(Authentication.this, UserInfo.class);
+                            startActivity(i);
+                            finish();
+                            //t.setText(String.valueOf(sum));
+                        }
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            };
+            LoginDetailsCheck a = new LoginDetailsCheck(email,personName , lastName , listener);
+
+            VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(a);
+
+
+
+
+
+
 
 /*
             Glide.with(getApplicationContext()).load(personPhotoUrl)
@@ -438,7 +513,7 @@ public class Authentication extends AppCompatActivity
                     .into(imgProfilePic);
 
 */
-            updateUI(true);
+//            updateUI(true);
         } else {
             // Signed out, show unauthenticated UI.
             updateUI(false);

@@ -59,33 +59,33 @@ public class BottomNavigation extends AppCompatActivity {
 
 
 
-
-        Bundle extras = getIntent().getExtras();
-        username= extras.getString("username");
-
         SharedPreferences sharedPref = this.getSharedPreferences("Login",Context.MODE_PRIVATE);
+        final String fname = sharedPref.getString("fname","A");
+        final String email = sharedPref.getString("email","goel.rashi48@gmail.com");
+        Log.d("emailllllllllllll",email);
+        Log.d("fnameeeeeeeeeee",fname);
+
+        /*SharedPreferences sharedPref = this.getSharedPreferences("Login",Context.MODE_PRIVATE);
         final String fname = sharedPref.getString("fname","A");
 
 
 
-       /* SharedPreferences sharedPreferences = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = this.getPreferences(Context.MODE_PRIVATE);
         String ecopy =  sharedPreferences.getString("username","NoValue");
 
 
         System.out.println(ecopy);*/
-        Log.d("eeeeeeeeeeeeeee",username);
+//        Log.d("eeeeeeeeeeeeeee",username);
         Log.d("gvcsdgcvs","dggvcgdvcgdvcgvdgcvdgc");
 
         fragmentManager = getFragmentManager();
 
 
         FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-        Bundle bundle = new Bundle();
-        bundle.putString("username",username);
+
         HomeScreen hs = HomeScreen.newInstance();
-        hs.setArguments(bundle);
         fragmentTransaction.add(R.id.fragmentContainer ,hs,"2" );
-        //fragmentTransaction.replace(R.id.fragmentContainer,HomeScreen.newInstance());
+        //fragmentTransaction.add(R.id.fragmentContainer,HomeScreen.newInstance());
         fragmentTransaction.commit();
 
 

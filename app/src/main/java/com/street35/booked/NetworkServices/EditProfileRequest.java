@@ -3,6 +3,7 @@ package com.street35.booked.NetworkServices;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -17,8 +18,8 @@ public class EditProfileRequest extends StringRequest{
                               String contact, String address, String sex , String email ,String lt,
                               String ln, Response.Listener<String> listener){
 
-        super(Method.GET, Reg_req_url
-                + "?fname="+first_name+
+        super(Method.POST, Reg_req_url
+    /*            + "?fname="+first_name+
         "&lname=" + last_name+
         "&university="+university+
         "&contact="+contact+
@@ -26,10 +27,10 @@ public class EditProfileRequest extends StringRequest{
         "&sex="+sex+
         "&email="+email+
         "&latitude="+lt+
-        "&longitude="+ln
+        "&longitude="+ln */
         , listener , null);
 
-        /*
+
         params= new HashMap<>();
         params.put("fname",first_name);
         params.put("lname",last_name);
@@ -42,12 +43,12 @@ public class EditProfileRequest extends StringRequest{
         params.put("longitude",ln);
 
 
-*/
+
     }
 
-  /*  @Override
+    @Override
     public Map<String, String> getParams() {
         return params;
     }
-*/
+
 }

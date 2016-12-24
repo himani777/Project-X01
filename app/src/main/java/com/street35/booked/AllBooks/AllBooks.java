@@ -1,6 +1,12 @@
 package com.street35.booked.AllBooks;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,7 +21,10 @@ import android.view.ViewGroup;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Response;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.street35.booked.NetworkServices.AllBooksViaEmail;
+import com.street35.booked.NetworkServices.NotConnected;
 import com.street35.booked.NetworkServices.VolleySingleton;
 import com.street35.booked.R;
 
@@ -26,7 +35,7 @@ import java.util.List;
 
 /**
  * Created by Rashi on 20-08-2016.
- */public class AllBooks extends android.app.Fragment{
+ */public class AllBooks extends android.app.Fragment implements GoogleApiClient.OnConnectionFailedListener {
 
 
     String ecopy;
@@ -34,7 +43,7 @@ import java.util.List;
     RecyclerView recyclerView;
     private static AllBooksAdapter mAdapter;
     private static AllBooks allBooks;
-    private MaterialDialog dialog;
+    MaterialDialog dialog;
 
 
 
@@ -54,6 +63,8 @@ import java.util.List;
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.all_books, container, false);
 
+        boolean conn = isConnected(getActivity());
+
         dialog = new MaterialDialog.Builder(view.getContext())
                 .title("Fetching Data")
                 .content("And Its Almost There")
@@ -62,8 +73,22 @@ import java.util.List;
                 .show();
 
 
-        Bundle bundle = this.getArguments();
-        ecopy = bundle.getString("username");
+        if (!conn) {
+            Intent i = new Intent(getActivity(), NotConnected.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            getFragmentManager().popBackStack();
+            dialog.dismiss();
+            startActivity(i);
+
+        }
+
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
+        String ecopy =  sharedPreferences.getString("email","");
+
+        System.out.println(ecopy);
+        Log.d("eeeeeeeeeeeeeee",ecopy);
+
         Log.d("ecopy",ecopy);
 
         itemList= new ArrayList<>();
@@ -284,4 +309,23 @@ import java.util.List;
         Log.e("Errorrr", "Erorrrrrrrrr");
         Log.e("Errorrr", "Erorrrrrrrrr");
     }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        Intent i = new Intent(getActivity(), NotConnected.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        dialog.dismiss();
+        startActivity(i);
+
+
+    }
+
+    public static boolean isConnected(Context context){
+        ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork!=null && activeNetwork.isConnectedOrConnecting();
+    }
+
+
 }
