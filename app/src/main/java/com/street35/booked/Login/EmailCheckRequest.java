@@ -11,8 +11,8 @@ public class EmailCheckRequest extends StringRequest {
    // private Map<String, String > params;
 
 
-    public EmailCheckRequest(String email , String password, Response.Listener<String> listener){
-        super(Method.GET, emailcheck_url+email+"&password="+password , listener, null);
+    public EmailCheckRequest(String email , Response.Listener<String> listener){
+        super(Method.GET, emailcheck_url+email , listener, null);
 /*
         params= new HashMap<>();
         params.put("email",email);

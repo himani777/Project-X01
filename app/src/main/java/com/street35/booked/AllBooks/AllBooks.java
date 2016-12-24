@@ -36,7 +36,7 @@ import java.util.List;
 
 /**
  * Created by Rashi on 20-08-2016.
- */public class AllBooks extends android.app.Fragment implements GoogleApiClient.OnConnectionFailedListener, SwipeRefreshLayout.OnRefreshListener {
+ */public class AllBooks extends android.app.Fragment implements GoogleApiClient.OnConnectionFailedListener {
 
 
     String ecopy;
@@ -45,7 +45,7 @@ import java.util.List;
     private static AllBooksAdapter mAdapter;
     private static AllBooks allBooks;
     MaterialDialog dialog;
-    SwipeRefreshLayout swipeRefreshLayout;
+    //SwipeRefreshLayout swipeRefreshLayout;
 
 
 
@@ -67,9 +67,9 @@ import java.util.List;
         View view= inflater.inflate(R.layout.all_books, container, false);
 
         boolean conn = isConnected(getActivity());
-        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swiperefreshlayout);
+        //swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swiperefreshlayout);
 
-        swipeRefreshLayout.setOnRefreshListener(this);
+        //swipeRefreshLayout.setOnRefreshListener(this);
 
         dialog = new MaterialDialog.Builder(view.getContext())
                 .title("Fetching Data")
@@ -334,12 +334,8 @@ import java.util.List;
     }
 
 
-    @Override
-    public void onRefresh() {
-        fetchData();
 
-    }
-    public void fetchData(){
+    /*public void fetchData(){
 
         swipeRefreshLayout.setRefreshing(true);
         Response.Listener<String> listener = new Response.Listener<String>() {
@@ -358,7 +354,7 @@ import java.util.List;
 
                         JSONArray j = jsonArray.getJSONArray(i);
 
-                        /*
+                        *//*
                         String image = j.getString(3);
                         String name = j.getString(4);
                         String author = j.getString(5);
@@ -367,7 +363,7 @@ import java.util.List;
                         String date_posted = j.getString(8);
                         BooksModel item = new BooksModel(image,name,author,description,exchange_donate,date_posted);
                         itemList.add(item);
-                        */
+                        *//*
 
 
 
@@ -420,10 +416,10 @@ import java.util.List;
         };
 
         AllBooksViaEmail a = new AllBooksViaEmail(ecopy,listener);
-        /*
+        *//*
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         queue.add(a);
-        */
+        *//*
         a.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         VolleySingleton.getInstance(getActivity()).addToRequestQueue(a);
@@ -434,5 +430,5 @@ import java.util.List;
 
 
 
-    }
+    }*/
 }

@@ -571,7 +571,7 @@ public class Authentication extends AppCompatActivity
     }
 
     private void updateUI(boolean isSignedIn) {
-        if (true) {
+        if (isSignedIn) {
             //Sign In True
             Intent i = new Intent(Authentication.this, BottomNavigation.class);
             startActivity(i);

@@ -104,8 +104,8 @@ public class EnterDetails extends AppCompatActivity {
         toolbar.setTitle("Book Share");
 
         SharedPreferences sharedPreferences = this.getSharedPreferences("Login",Context.MODE_PRIVATE);
-        username = sharedPreferences.getString("username","NoValue");
-        Log.d("username",username);
+        username = sharedPreferences.getString("email","goel.rashi48@gmail.com");
+        Log.d("emailuuuuuuuu",username);
 
 
 
