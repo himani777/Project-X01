@@ -48,7 +48,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_play_arrow_black_24dp"
                 android:id="@+id/mbl_bookimage"
-
                 android:adjustViewBounds="true"
                 />
 

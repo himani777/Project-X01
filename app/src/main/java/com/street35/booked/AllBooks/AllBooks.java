@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -35,7 +36,7 @@ import java.util.List;
 
 /**
  * Created by Rashi on 20-08-2016.
- */public class AllBooks extends android.app.Fragment implements GoogleApiClient.OnConnectionFailedListener {
+ */public class AllBooks extends android.app.Fragment implements GoogleApiClient.OnConnectionFailedListener, SwipeRefreshLayout.OnRefreshListener {
 
 
     String ecopy;
@@ -44,6 +45,8 @@ import java.util.List;
     private static AllBooksAdapter mAdapter;
     private static AllBooks allBooks;
     MaterialDialog dialog;
+    SwipeRefreshLayout swipeRefreshLayout;
+
 
 
 
@@ -64,6 +67,9 @@ import java.util.List;
         View view= inflater.inflate(R.layout.all_books, container, false);
 
         boolean conn = isConnected(getActivity());
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swiperefreshlayout);
+
+        swipeRefreshLayout.setOnRefreshListener(this);
 
         dialog = new MaterialDialog.Builder(view.getContext())
                 .title("Fetching Data")
@@ -328,4 +334,105 @@ import java.util.List;
     }
 
 
+    @Override
+    public void onRefresh() {
+        fetchData();
+
+    }
+    public void fetchData(){
+
+        swipeRefreshLayout.setRefreshing(true);
+        Response.Listener<String> listener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("aaaaaaaaa",response.toString()+"gvv");
+
+
+                try {
+
+                    JSONArray jsonArray = new JSONArray(response);
+                    itemList.clear();
+
+                    for(int i = 0; i < jsonArray.length(); i++)
+                    {
+
+                        JSONArray j = jsonArray.getJSONArray(i);
+
+                        /*
+                        String image = j.getString(3);
+                        String name = j.getString(4);
+                        String author = j.getString(5);
+                        String description = j.getString(6);
+                        String exchange_donate = j.getString(7);
+                        String date_posted = j.getString(8);
+                        BooksModel item = new BooksModel(image,name,author,description,exchange_donate,date_posted);
+                        itemList.add(item);
+                        */
+
+
+
+                        BooksData item = new BooksData();
+                        item.first_name = j.getString(0);
+                        item.last_name = j.getString(1);
+                        item.contact = j.getString(2);
+                        item.latitude = j.getString(3);
+                        item.longitude = j.getString(4);
+
+                        item.book_image = j.getString(5);
+                        item.book_name = j.getString(6);
+
+                        //Log.d("book names",item.book_image);
+                        item.book_author = j.getString(7);
+                        item.book_description = j.getString(7);
+                        String ed = j.getString(8);
+                        if(ed.equals("E")){
+                            item.book_exchange_donate = "Exchange";
+                        }
+                        else{
+                            item.book_exchange_donate = "Donate";
+
+                        }
+                        item.book_date_posted = j.getString(9);
+                        itemList.add(item);
+
+                        Log.d("bookname",item.book_name);
+                        swipeRefreshLayout.setRefreshing(false);
+
+
+
+
+                    }
+
+                    swipeRefreshLayout.setRefreshing(false);
+
+                    //t.setText(String.valueOf(sum));
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                finally {
+                    mAdapter.notifyDataSetChanged();
+                    swipeRefreshLayout.setRefreshing(false);
+
+                }
+            }
+        };
+
+        AllBooksViaEmail a = new AllBooksViaEmail(ecopy,listener);
+        /*
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        queue.add(a);
+        */
+        a.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        VolleySingleton.getInstance(getActivity()).addToRequestQueue(a);
+
+
+        mAdapter.notifyDataSetChanged();
+        swipeRefreshLayout.setRefreshing(false);
+
+
+
+    }
 }

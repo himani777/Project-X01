@@ -41,19 +41,23 @@ public class EditDetails extends AppCompatActivity {
     private String sex;
     String latitude,longitude;
     ProfileModel profileModel ;
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_profile);
+        sharedPref = this.getSharedPreferences("Login", Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_profile);
        // setSupportActionBar(toolbar);
         toolbar.setTitle("Profile");
 
         SharedPreferences sharedPreferences = getSharedPreferences("Login",Context.MODE_PRIVATE);
-        s =  sharedPreferences.getString("username","");
+        s =  sharedPreferences.getString("email","goel.rashi48@gmail.com");
         Log.d("Email Id : ",s);
 
 
@@ -77,11 +81,11 @@ public class EditDetails extends AppCompatActivity {
 
 
                 flag = 0;
-                String d1 = contact.getText().toString();
-                String d2 = address.getText().toString();
-                String d3 = university.getText().toString();
-                String d4 = fname.getText().toString();
-                String d5 = lname.getText().toString();
+                final String d1 = contact.getText().toString();
+                final String d2 = address.getText().toString();
+                final String d3 = university.getText().toString();
+                final String d4 = fname.getText().toString();
+                final String d5 = lname.getText().toString();
 
                 if (male.isSelected()) sex = "0";
                 else if (female.isSelected()) sex = "1";
@@ -99,6 +103,13 @@ public class EditDetails extends AppCompatActivity {
                     Log.i("Lat", "" + lat);
                     Log.i("Lng", "" + lng);
 
+                    SharedPreferences preferences = getSharedPreferences("Location",Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor1 = preferences.edit();
+                    editor1.putString("latitude",String.valueOf(lat));
+                    editor1.putString("longitude",String.valueOf(lng));
+                    editor1.commit();
+
+
 
 
 
@@ -113,6 +124,15 @@ public class EditDetails extends AppCompatActivity {
                                     Log.d(response,response);
                                     if (success) {
                                         Toast.makeText(getApplicationContext(), "Updated Successfully", Toast.LENGTH_SHORT).show();
+
+                                        editor.putString("address", d2);
+                                        editor.putString("university", d3);
+                                        editor.putString("contact", d1);
+                                        editor.putString("fname", d4);
+                                        editor.putString("lname", d5);
+                                        editor.putString("sex",sex);
+                                        editor.commit();
+
                                         flag = 1;
                                     } else {
                                         Toast.makeText(getApplicationContext(), "Error Occurred", Toast.LENGTH_SHORT).show();
@@ -146,12 +166,13 @@ public class EditDetails extends AppCompatActivity {
 
 
 
-        final MaterialDialog dialog = new MaterialDialog.Builder(this)
+      /*  final MaterialDialog dialog = new MaterialDialog.Builder(this)
                 .title("Profile Data")
                 .content("And Its Almost There")
                 .progress(true, 0)
-                .show();
+                .show();*/
 
+        Log.d("vvvvvvvvvvvvv","vvvvvvvvvvvvvvvvv");
 
 
         contact=(EditText)findViewById(R.id.ep_contact);
@@ -164,30 +185,20 @@ public class EditDetails extends AppCompatActivity {
         female= (RadioButton) findViewById(R.id.ep_female);
         others = (RadioButton) findViewById(R.id.ep_others);
 
+        SharedPreferences sharedPreferences = this.getSharedPreferences("Login",Context.MODE_PRIVATE);
+        String First_name = sharedPreferences.getString("fname","");
+        String Last_name = sharedPreferences.getString("lname","");
+        String University = sharedPreferences.getString("university","");
+        String Contact = sharedPreferences.getString("contact","");
+        String Address = sharedPreferences.getString("address","");
+        String Sex = sharedPreferences.getString("sex","2");
 
 
 
-        Response.Listener<String> listener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
+        Log.d("sc hdsc",University);
 
 
-                    dialog.dismiss();
-                    Log.d("aa","sdsdsdsdsdsdsdsdsdsdsd");
-                    Log.d("aa",response);
-                    JSONArray jj = new JSONArray(response);
-                        JSONArray j = jj.getJSONArray(0);
 
-                        String First_name = j.getString(0);
-                        String Last_name = j.getString(1);
-                        String Sex = j.getString(2);
-
-                        String University = j.getString(3);
-                        String Contact = j.getString(4);
-                        String Address = j.getString(5);
-                      //  profileModel = new ProfileModel(first_name , last_name , sex ,
-                      //          university , contact , address , email);
                         fname.setText(First_name);
                         lname.setText(Last_name);
                         if(Sex.endsWith("0")) male.setChecked(true);
@@ -203,17 +214,7 @@ public class EditDetails extends AppCompatActivity {
                     //t.setText(String.valueOf(sum));
 
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                finally {
 
-                }
-            }
-        };
-
-        GetProfileDetails a = new GetProfileDetails(email,listener);
-        VolleySingleton.getInstance(EditDetails.this).addToRequestQueue(a);
 
 
     }

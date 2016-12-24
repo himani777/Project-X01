@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
@@ -50,7 +51,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private GoogleMap mMap;
     FloatingActionButton booksnearby, mylocation, navigation;
-    String ecopy = "abc";
+    String ecopy;
     String latitude, longitude;
     public GoogleApiClient googleApiClient;
     LocationRequest locationRequest;
@@ -73,6 +74,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar);
         toolbar.setTitle("Maps");
+
+        SharedPreferences sharedPreferences = getSharedPreferences("Login",Context.MODE_PRIVATE);
+        ecopy = sharedPreferences.getString("email","");
 
 
 

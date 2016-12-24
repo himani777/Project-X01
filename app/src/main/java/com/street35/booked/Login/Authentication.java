@@ -561,7 +561,7 @@ public class Authentication extends AppCompatActivity
             mProgressDialog.setIndeterminate(true);
         }
 
-        mProgressDialog.show();
+       mProgressDialog.show();
     }
 
     private void hideProgressDialog() {
@@ -571,10 +571,9 @@ public class Authentication extends AppCompatActivity
     }
 
     private void updateUI(boolean isSignedIn) {
-        if (isSignedIn) {
+        if (true) {
             //Sign In True
             Intent i = new Intent(Authentication.this, BottomNavigation.class);
-            i.putExtra("username", "a@a.com");
             startActivity(i);
         } else {
 

@@ -5,11 +5,13 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#FF3B494C</item>
         <item name="colorPrimaryDark">#FF3B494C</item>
-        <item name="colorAccent">#fe6466</item>
+        <item name="colorAccent">#ffffff</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:colorForeground">#fe6466</item>
         <item name="android:textColorSecondary">#ffffff</item>
+        <item name="android:textColorPrimary">#ffffff</item>
+        <item name="android:textColorPrimaryInverse">#ffffff</item>
     </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>

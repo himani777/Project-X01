@@ -60,8 +60,8 @@ public class BottomNavigation extends AppCompatActivity {
 
 
         SharedPreferences sharedPref = this.getSharedPreferences("Login",Context.MODE_PRIVATE);
-        final String fname = sharedPref.getString("fname","A");
-        final String email = sharedPref.getString("email","goel.rashi48@gmail.com");
+        final String fname = sharedPref.getString("fname","");
+        final String email = sharedPref.getString("email","");
         Log.d("emailllllllllllll",email);
         Log.d("fnameeeeeeeeeee",fname);
 
@@ -132,10 +132,7 @@ public class BottomNavigation extends AppCompatActivity {
                         } else {
                             //if the fragment does not exist, add it to fragment manager.
 
-                            Bundle bundle1 = new Bundle();
-                            bundle1.putString("username",username);
                             NearbyBooks n = NearbyBooks.newInstance();
-                            n.setArguments(bundle1);
                             fragmentManager.beginTransaction().add(R.id.fragmentContainer, n, "0").commit();
                         }
 
@@ -154,10 +151,8 @@ public class BottomNavigation extends AppCompatActivity {
                         } else {
                             //if the fragment does not exist, add it to fragment manager.
 
-                            Bundle bundle2 = new Bundle();
-                            bundle2.putString("username",username);
+
                             AllBooks a = AllBooks.newInstance() ;
-                            a.setArguments(bundle2);
                             fragmentManager.beginTransaction().add(R.id.fragmentContainer, a, "1").commit();
                         }
 
@@ -177,10 +172,8 @@ public class BottomNavigation extends AppCompatActivity {
                             //if the fragment does not exist, add it to fragment manager.
 
 
-                            Bundle bundle3 = new Bundle();
-                            bundle3.putString("username",username);
+
                             HomeScreen hs = HomeScreen.newInstance();
-                            hs.setArguments(bundle3);
                             fragmentManager.beginTransaction().add(R.id.fragmentContainer, hs, "2").commit();
                         }
 
@@ -199,10 +192,8 @@ public class BottomNavigation extends AppCompatActivity {
                             //if the fragment does not exist, add it to fragment manager.
 
 
-                            Bundle bundle6 = new Bundle();
-                            bundle6.putString("username",username);
+
                             MyBooks mb = MyBooks.newInstance();
-                            mb.setArguments(bundle6);
                             fragmentManager.beginTransaction().add(R.id.fragmentContainer, mb, "3").commit();
                         }
 
@@ -221,11 +212,8 @@ public class BottomNavigation extends AppCompatActivity {
                             //if the fragment does not exist, add it to fragment manager.
 
 
-                            Bundle bundle5 = new Bundle();
-                            bundle5.putString("username",username);
-                            bundle5.putString("fname",fname);
+
                             ProfileFragment pf = ProfileFragment.newInstance();
-                            pf.setArguments(bundle5);
 
                             fragmentManager.beginTransaction().add(R.id.fragmentContainer, pf, "4").commit();
                         }

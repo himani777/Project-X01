@@ -72,10 +72,12 @@ public class UserInfo extends AppCompatActivity {
                 } else {
 
 
-                    fname = sharedPref.getString("fname", "NoValue");
-                    lname = sharedPref.getString("lname", "NoValue");
-                    email = sharedPref.getString("email", "goel.rashi48@gmail.com");
+                    fname = sharedPref.getString("fname", "");
+                    lname = sharedPref.getString("lname", "");
+                    email = sharedPref.getString("email", "");
                     //email = "goel.rashi48@gmail.com";
+
+
 
                     Log.d(TAG,email);
 
