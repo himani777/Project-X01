@@ -131,6 +131,7 @@ public class BottomNavigation extends AppCompatActivity {
                             fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag("0")).commit();
                         } else {
                             //if the fragment does not exist, add it to fragment manager.
+                            toolbar.setTitle("Nearby Books");
 
                             NearbyBooks n = NearbyBooks.newInstance();
                             fragmentManager.beginTransaction().add(R.id.fragmentContainer, n, "0").commit();
@@ -153,6 +154,8 @@ public class BottomNavigation extends AppCompatActivity {
 
 
                             AllBooks a = AllBooks.newInstance() ;
+                            toolbar.setTitle("All Books");
+
                             fragmentManager.beginTransaction().add(R.id.fragmentContainer, a, "1").commit();
                         }
 
@@ -174,6 +177,8 @@ public class BottomNavigation extends AppCompatActivity {
 
 
                             HomeScreen hs = HomeScreen.newInstance();
+                            toolbar.setTitle("Home");
+
                             fragmentManager.beginTransaction().add(R.id.fragmentContainer, hs, "2").commit();
                         }
 
@@ -194,6 +199,8 @@ public class BottomNavigation extends AppCompatActivity {
 
 
                             MyBooks mb = MyBooks.newInstance();
+                            toolbar.setTitle("My Books");
+
                             fragmentManager.beginTransaction().add(R.id.fragmentContainer, mb, "3").commit();
                         }
 
@@ -214,7 +221,7 @@ public class BottomNavigation extends AppCompatActivity {
 
 
                             ProfileFragment pf = ProfileFragment.newInstance();
-
+                            toolbar.setTitle("Profile");
                             fragmentManager.beginTransaction().add(R.id.fragmentContainer, pf, "4").commit();
                         }
 

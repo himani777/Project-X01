@@ -108,6 +108,7 @@ public class HomeScreen extends android.app.Fragment implements View.OnClickList
                 Intent intent2 = new Intent(getActivity(),TwoAddOptions.class);
                 intent2.putExtra("E/D","D");
                 getActivity().startActivity(intent2);
+                getActivity().finish();
                 break;
 
             case R.id.fab2:
@@ -123,6 +124,7 @@ public class HomeScreen extends android.app.Fragment implements View.OnClickList
                 Intent intent = new Intent(getActivity(),TwoAddOptions.class);
                 intent.putExtra("E/D","E");
                 getActivity().startActivity(intent);
+                getActivity().finish();
                 break;
         }
     }

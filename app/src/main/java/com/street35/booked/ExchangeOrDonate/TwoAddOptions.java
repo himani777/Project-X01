@@ -7,10 +7,12 @@ package com.street35.booked.ExchangeOrDonate;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -82,6 +84,7 @@ public class TwoAddOptions extends AppCompatActivity {
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                                 startActivity(intent);
+                                finish();
                             }
                         }).show();
                 }
@@ -134,10 +137,15 @@ public class TwoAddOptions extends AppCompatActivity {
                                             .content(scanResult)
                                             .positiveText("Agree")
                                             .negativeText("Disagree")
+                                            .positiveColor(Color.BLACK)
+                                            .negativeColor(Color.BLACK)
                                             .cancelable(false)
                                             .showListener(new DialogInterface.OnShowListener() {
                                                 @Override
                                                 public void onShow(DialogInterface dialog) {
+
+
+
 
                                                 }
                                             })
@@ -151,6 +159,7 @@ public class TwoAddOptions extends AppCompatActivity {
                                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                                                     startActivity(intent);
+                                                    finish();
                                                 }
                                             })
                                             .show();

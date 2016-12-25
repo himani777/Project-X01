@@ -1,9 +1,11 @@
 package com.street35.booked.NearbyBooks;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -163,6 +165,14 @@ public class NearbyBooks extends android.app.Fragment implements
                     }
                 });
         final AlertDialog alert = builder.create();
+
+        alert.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                alert.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+                alert.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+            }
+        });
         alert.show();
     }
 
@@ -181,5 +191,11 @@ public class NearbyBooks extends android.app.Fragment implements
         ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         return activeNetwork!=null && activeNetwork.isConnectedOrConnecting();
+    }
+
+    @Override
+    public void onAttachFragment(Fragment childFragment) {
+        getActivity().setTitle("Nearby Books");
+        super.onAttachFragment(childFragment);
     }
 }

@@ -1,9 +1,11 @@
 package com.street35.booked.Profile;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -15,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,7 +28,7 @@ import com.street35.booked.R;
  * Created by Weirdo on 11-08-2016.
  */
 public class ProfileFragment extends android.app.Fragment{
-    TextView detail , text1;
+    TextView detail , text1, profile_name;
     ImageView detailimg;
     android.app.FragmentManager fragmentManager;
     EditDetails editDetails;
@@ -44,6 +47,8 @@ public class ProfileFragment extends android.app.Fragment{
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getActivity().setTitle("Profile");
+
 
     }
 
@@ -67,17 +72,24 @@ public class ProfileFragment extends android.app.Fragment{
         System.out.println(ecopy);
         Log.d("eeeeeeeeeeeeeee",ecopy);*/
 
-        /*SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Login",Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Login",Context.MODE_PRIVATE);
         String fname=sharedPreferences.getString("fname","U");
-        String lname = sharedPreferences.getString("lname"," ");
+        String lname = sharedPreferences.getString("lname","");
 
         char p = fname.toUpperCase().charAt(0);
-        char s = lname.toUpperCase().charAt(0);
-        */
+
+        Log.d("nxbchdcv", String.valueOf(p));
 
         //s= sharedPreferences.getString("email","abc");
-        TextView profile_name = (TextView) v.findViewById(R.id.profile_name);
-        profile_name.setText(String.valueOf("You"));
+        profile_name = (TextView) v.findViewById(R.id.profile_name);
+        if(lname.isEmpty()){
+            profile_name.setText(String.valueOf(p));
+        }
+        else{
+            char s = lname.toUpperCase().charAt(0);
+            profile_name.setText(String.valueOf(p+s));
+        }
+
 
 
         detail.setOnClickListener(new View.OnClickListener() {
@@ -153,6 +165,7 @@ public class ProfileFragment extends android.app.Fragment{
                         SharedPreferences.Editor editor1 = sharedPreferences1.edit();
                         editor1.putString("latitude","0");
                         editor1.putString("longitude","0");
+                        editor1.commit();
                         dialog.dismiss();
                         dialog.cancel();
 
@@ -165,6 +178,19 @@ public class ProfileFragment extends android.app.Fragment{
                     }
                 });
         final AlertDialog alert = builder.create();
+        alert.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                alert.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+                alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+            }
+        });
         alert.show();
+    }
+
+    @Override
+    public void onAttachFragment(Fragment childFragment) {
+        getActivity().setTitle("Profile");
+        super.onAttachFragment(childFragment);
     }
 }

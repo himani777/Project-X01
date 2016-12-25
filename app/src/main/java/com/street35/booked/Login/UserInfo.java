@@ -58,90 +58,97 @@ public class UserInfo extends AppCompatActivity {
         address = (EditText)findViewById(R.id.ui_address);
         university = (EditText)findViewById(R.id.ui_university);
        contact = (EditText)findViewById(R.id.ui_contact);
+
+
         final Button enter = (Button)findViewById(R.id.done);
 
 
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                add = address.getText().toString();
-                uni = university.getText().toString();
-                con = contact.getText().toString();
-                if (TextUtils.isEmpty(add) && TextUtils.isEmpty(con)) {
-                    Snackbar.make(view.findFocus(), "Enter details", Snackbar.LENGTH_LONG).show();
+                String MobilePattern = "[0-9]{10}";
+
+                if (!contact.getText().toString().matches(MobilePattern)||contact.getText().toString().length()>13||contact.getText().toString().length()>10 ) {
+
+                    contact.setError("Enter valid number");
                 } else {
+                    add = address.getText().toString();
+                    uni = university.getText().toString();
+                    con = contact.getText().toString();
+                    if (TextUtils.isEmpty(add) && TextUtils.isEmpty(con)) {
+                        Snackbar.make(view.findFocus(), "Enter details", Snackbar.LENGTH_LONG).show();
+                    } else {
 
 
-                    fname = sharedPref.getString("fname", "");
-                    lname = sharedPref.getString("lname", "");
-                    email = sharedPref.getString("email", "");
-                    //email = "goel.rashi48@gmail.com";
+                        fname = sharedPref.getString("fname", "");
+                        lname = sharedPref.getString("lname", "");
+                        email = sharedPref.getString("email", "");
+                        //email = "goel.rashi48@gmail.com";
 
 
-
-                    Log.d(TAG,email);
-
-
-                    Geocoder coder = new Geocoder(getApplicationContext());
-                    List<Address> addresses;
-                    try {
-                        addresses = coder.getFromLocationName(add, 5);
-
-                        Address location = addresses.get(0);
-                        double lat = location.getLatitude();
-                        double lng = location.getLongitude();
-                        Log.i(TAG + "Lat", "" + lat);
-                        Log.i(TAG + "Lng", "" + lng);
-                        editor1.putString("latitude",String.valueOf(lat));
-                        editor1.putString("longitude",String.valueOf(lng));
-                        editor1.apply();
+                        Log.d(TAG, email);
 
 
-                        Response.Listener<String> listener = new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                try {
-                                    Log.d("abbbbbbbbbbbbbbbbb","bbbbbbbbbbbbbbbbbbb");
+                        Geocoder coder = new Geocoder(getApplicationContext());
+                        List<Address> addresses;
+                        try {
+                            addresses = coder.getFromLocationName(add, 5);
+
+                            Address location = addresses.get(0);
+                            double lat = location.getLatitude();
+                            double lng = location.getLongitude();
+                            Log.i(TAG + "Lat", "" + lat);
+                            Log.i(TAG + "Lng", "" + lng);
+                            editor1.putString("latitude", String.valueOf(lat));
+                            editor1.putString("longitude", String.valueOf(lng));
+                            editor1.apply();
 
 
+                            Response.Listener<String> listener = new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    try {
+                                        Log.d("abbbbbbbbbbbbbbbbb", "bbbbbbbbbbbbbbbbbbb");
 
-                                    JSONObject jsonObject = new JSONObject(response);
-                                    boolean success = jsonObject.getBoolean("success");
-                                    Log.d(response, response);
-                                    if (success) {
-                                        Toast.makeText(getApplicationContext(), "Updated Successfully", Toast.LENGTH_SHORT).show();
-                                        editor.putString("address", add);
-                                        editor.putString("university", uni);
-                                        editor.putString("contact", con);
-                                        editor.putString("sex","2");
-                                        editor.apply();
-                                        Log.d("ffffffffffffffffff",fname+lname+uni+con+add+"2"+email);
 
-                                        Intent i = new Intent(UserInfo.this, BottomNavigation.class);
-                                        startActivity(i);
+                                        JSONObject jsonObject = new JSONObject(response);
+                                        boolean success = jsonObject.getBoolean("success");
+                                        Log.d(response, response);
+                                        if (success) {
+                                            Toast.makeText(getApplicationContext(), "Updated Successfully", Toast.LENGTH_SHORT).show();
+                                            editor.putString("address", add);
+                                            editor.putString("university", uni);
+                                            editor.putString("contact", con);
+                                            editor.putString("sex", "2");
+                                            editor.apply();
+                                            Log.d("ffffffffffffffffff", fname + lname + uni + con + add + "2" + email);
 
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "Error Occurred", Toast.LENGTH_SHORT).show();
+                                            Intent i = new Intent(UserInfo.this, BottomNavigation.class);
+                                            startActivity(i);
+
+                                        } else {
+                                            Toast.makeText(getApplicationContext(), "Error Occurred", Toast.LENGTH_SHORT).show();
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
                                     }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
                                 }
-                            }
-                        };
+                            };
 
 
+                            EditProfileRequest profileRequest = new EditProfileRequest(fname, lname, uni, con, add, "2",
+                                    email, String.valueOf(lat), String.valueOf(lng), listener);
 
-                        EditProfileRequest profileRequest = new EditProfileRequest(fname, lname, uni, con, add, "2",
-                                email, String.valueOf(lat), String.valueOf(lng), listener);
-
-                        VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(profileRequest);
+                            VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(profileRequest);
 
 
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            Snackbar.make(getCurrentFocus(),"Invalid address",Snackbar.LENGTH_SHORT).show();
+                        }
+
+
                     }
-
-
                 }
             }
          });

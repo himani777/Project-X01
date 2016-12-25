@@ -31,14 +31,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right|bottom"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_my_location_white_24dp" />
+
+        android:src="@drawable/ic_my_location_white_24dp"
+        app:backgroundTint="#fe6466" />
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab123"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left|bottom"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_navigation_white_24dp" />
+        android:src="@drawable/ic_navigation_white_24dp"
+        app:backgroundTint="#fe6466" />
 
 
 

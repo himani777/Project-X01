@@ -3,6 +3,7 @@ package com.street35.booked.MyBooks;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -76,13 +77,15 @@ public class MyBooks extends android.app.Fragment implements GoogleApiClient.OnC
 
 
         swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipelayout);
-        swipeLayout.setOnRefreshListener(this);
+       swipeLayout.setOnRefreshListener(this);
         dialog = new MaterialDialog.Builder(view.getContext())
                 .title("Fetching Data")
                 .content("And Its Almost There")
                 .progress(true, 0)
                 .cancelable(false)
+                .backgroundColor(Color.WHITE)
                 .show();
+
 
 
         if (!conn) {
@@ -314,10 +317,11 @@ public class MyBooks extends android.app.Fragment implements GoogleApiClient.OnC
 
                     for(int i = 0; i < jsonArray.length(); i++)
                     {
-/*
+
+                        JSONArray j = jsonArray.getJSONArray(i);
 
 
-                        String image = j.getString(3);
+                      /*  String image = j.getString(3);
                         String name = j.getString(4);
                         String author = j.getString(5);
                         String description = j.getString(6);
@@ -328,7 +332,6 @@ public class MyBooks extends android.app.Fragment implements GoogleApiClient.OnC
 
 */
 
-                        JSONArray j = jsonArray.getJSONArray(i);
 
                         BooksData item = new BooksData();
                         item.book_image = j.getString(3);
@@ -380,4 +383,6 @@ public class MyBooks extends android.app.Fragment implements GoogleApiClient.OnC
 
 
     }
+
+
 }

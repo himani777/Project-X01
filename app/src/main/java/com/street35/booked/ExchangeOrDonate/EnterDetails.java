@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -218,6 +219,7 @@ public class EnterDetails extends AppCompatActivity {
                                         .title("No Information")
                                         .content("No data for this ISBN. If this information is wrong, do report.")
                                         .positiveText("Okay")
+                                        .positiveColor(Color.BLACK)
                                         .cancelable(false)
                                         .showListener(new DialogInterface.OnShowListener() {
                                             @Override
@@ -233,6 +235,7 @@ public class EnterDetails extends AppCompatActivity {
                                                 Intent i = new Intent(EnterDetails.this,TwoAddOptions.class);
                                                 i.putExtra("E/D", "E");
                                                 startActivity(i);
+                                                finish();
                                             }
                                         })
                                         .show();
@@ -363,6 +366,13 @@ public class EnterDetails extends AppCompatActivity {
                     }
                 });
         final AlertDialog alert = builder.create();
+        alert.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+                alert.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+            }
+        });
         alert.show();
     }
 

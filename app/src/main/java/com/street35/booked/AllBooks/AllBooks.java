@@ -1,8 +1,10 @@
 package com.street35.booked.AllBooks;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -76,6 +78,7 @@ import java.util.List;
                 .content("And Its Almost There")
                 .progress(true, 0)
                 .cancelable(false)
+                .contentColor(Color.BLACK)
                 .show();
 
 
@@ -431,4 +434,10 @@ import java.util.List;
 
 
     }*/
+
+    @Override
+    public void onAttachFragment(Fragment childFragment) {
+        getActivity().setTitle("All Books");
+        super.onAttachFragment(childFragment);
+    }
 }

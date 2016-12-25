@@ -14,10 +14,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.gms.auth.api.Auth;
 import android.view.View;
 import android.widget.Button;
@@ -77,6 +79,8 @@ public class Authentication extends AppCompatActivity
     String un,ps;
     String ema;
     int em_val=0;
+    int signInCheck = 1;
+    MaterialDialog materialDialog;
 
     ImageView done;
     android.app.FragmentManager fragmentManager = getFragmentManager();
@@ -114,7 +118,7 @@ public class Authentication extends AppCompatActivity
             }
         };
 
-        SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        final SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -138,7 +142,10 @@ public class Authentication extends AppCompatActivity
                 setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if(signInCheck==1)
+                        {
                             signIn();
+                        }
                     }
                 });
 
@@ -456,8 +463,8 @@ public class Authentication extends AppCompatActivity
                             //String s = sharedPref.getString("username", "NoValue");
 
                             if(jsonObject.getString("university").equals("null") ||
-                                 jsonObject.getString("contact") == null ||
-                                    jsonObject.getString("Address") == null
+                                 jsonObject.getString("contact").equals("null")||
+                                    jsonObject.getString("Address").equals("null")
                                     ){
 
                                 Log.d(TAG,"Json in");
@@ -528,6 +535,7 @@ public class Authentication extends AppCompatActivity
     public void onStart() {
         super.onStart();
 
+        signInCheck = 1;
 
         mAuth.addAuthStateListener(mAuthListener);
 
@@ -536,17 +544,25 @@ public class Authentication extends AppCompatActivity
             // If the user's cached credentials are valid, the OptionalPendingResult will be "done"
             // and the GoogleSignInResult will be available instantly.
             Log.d(TAG, "Got cached sign-in");
-            GoogleSignInResult result = opr.get();
-            handleSignInResult(result);
+            //GoogleSignInResult result = opr.get();
+            //handleSignInResult(result);
+
+            Intent i = new Intent(Authentication.this, BottomNavigation.class);
+            startActivity(i);
+            finish();
         } else {
             // If the user has not previously signed in on this device or the sign-in has expired,
             // this asynchronous branch will attempt to sign in the user silently.  Cross-device
             // single sign-on will occur in this branch.
-            showProgressDialog();
+            materialDialog = new MaterialDialog.Builder(this)
+                    .title("Verifying")
+                    .content("Signing You In")
+                    .show();
+
             opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
                 @Override
                 public void onResult(GoogleSignInResult googleSignInResult) {
-                    hideProgressDialog();
+                    materialDialog.dismiss();
                     handleSignInResult(googleSignInResult);
                 }
             });
@@ -554,29 +570,19 @@ public class Authentication extends AppCompatActivity
     }
 
 
-    private void showProgressDialog() {
-        if (mProgressDialog == null) {
-            mProgressDialog = new ProgressDialog(this);
-            mProgressDialog.setMessage("loading");
-            mProgressDialog.setIndeterminate(true);
-        }
 
-       mProgressDialog.show();
-    }
 
-    private void hideProgressDialog() {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.hide();
-        }
-    }
+
 
     private void updateUI(boolean isSignedIn) {
-        if (isSignedIn) {
+        if (true) {
             //Sign In True
             Intent i = new Intent(Authentication.this, BottomNavigation.class);
             startActivity(i);
         } else {
 
+            Toast.makeText( getApplicationContext(), "Some Internal Issue. Try after sometime" ,
+                    Toast.LENGTH_LONG).show();
             //Not Signed In
         }
     }
@@ -775,7 +781,7 @@ public class Authentication extends AppCompatActivity
                         editor.putString("password", pass);
                         editor.putString("fname", firstname);
                         editor.putString("lname", lastname);
-                        editor.commit();
+                        editor.apply();
                         Intent i = new Intent(Authentication.this , BottomNavigation.class);
                         i.putExtra("username",em);
                         startActivity(i);
