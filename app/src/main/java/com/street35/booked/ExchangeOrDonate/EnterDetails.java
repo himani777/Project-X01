@@ -3,6 +3,8 @@ package com.street35.booked.ExchangeOrDonate;
 /**
  * Created by Rashi on 31-08-2016.
  */
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -38,6 +40,7 @@ import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.street35.booked.Login.Authentication;
+import com.street35.booked.Main.BottomNavigation;
 import com.street35.booked.NetworkServices.EnterDetailsRequest;
 import com.street35.booked.R;
 
@@ -287,11 +290,35 @@ public class EnterDetails extends AppCompatActivity {
 
     public void newActivity(int flag){
         if(flag==1){
-            Intent i = new Intent(this,Authentication.class);
+
+            FragmentManager fragmentManager = getFragmentManager();
+            Fragment fragment = fragmentManager.findFragmentByTag("0");
+            if(fragment != null)
+                fragmentManager.beginTransaction().remove(fragment).commit();
+
+            fragment = fragmentManager.findFragmentByTag("1");
+            if(fragment != null)
+                fragmentManager.beginTransaction().remove(fragment).commit();
+
+            fragment = fragmentManager.findFragmentByTag("2");
+            if(fragment != null)
+                fragmentManager.beginTransaction().remove(fragment).commit();
+
+            fragment = fragmentManager.findFragmentByTag("3");
+            if(fragment != null)
+                fragmentManager.beginTransaction().remove(fragment).commit();
+
+            fragment = fragmentManager.findFragmentByTag("4");
+            if(fragment != null)
+                fragmentManager.beginTransaction().remove(fragment).commit();
+
+
+            Intent i = new Intent(this,BottomNavigation.class);
 
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
             startActivity(i);
+            finish();
         }
     }
 

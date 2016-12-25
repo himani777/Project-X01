@@ -20,7 +20,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.street35.booked.Login.Authentication;
 import com.street35.booked.R;
 
@@ -34,6 +40,7 @@ public class ProfileFragment extends android.app.Fragment{
     EditDetails editDetails;
     Toolbar toolbar;
     static ProfileFragment profileFragment=null;
+    GoogleApiClient mGoogleApiClient;
 
     public static ProfileFragment newInstance() {
 
@@ -56,6 +63,13 @@ public class ProfileFragment extends android.app.Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+        mGoogleApiClient.connect();
         View v = inflater.inflate(R.layout.profile  ,container ,false);
 
         detail = (TextView)v.findViewById(R.id.detail);
@@ -76,6 +90,7 @@ public class ProfileFragment extends android.app.Fragment{
         String fname=sharedPreferences.getString("fname","U");
         String lname = sharedPreferences.getString("lname","");
 
+        Log.e(fname,lname);
         char p = fname.toUpperCase().charAt(0);
 
         Log.d("nxbchdcv", String.valueOf(p));
@@ -87,7 +102,9 @@ public class ProfileFragment extends android.app.Fragment{
         }
         else{
             char s = lname.toUpperCase().charAt(0);
-            profile_name.setText(String.valueOf(p+s));
+            String y = String.valueOf(p) + String.valueOf(s);
+            profile_name.setText(y);
+            Log.d("hhhhhhhhhhhhhhhhhhh", p+s + " lllllllllllllll");
         }
 
 
@@ -159,18 +176,49 @@ public class ProfileFragment extends android.app.Fragment{
                         editor.putString("password", "NoValue");
                         editor.putString("fname","NoValue");
                         editor.putString("lname","NoValue");
-                        editor.commit();
+                        editor.apply();
 
                         SharedPreferences sharedPreferences1 = getActivity().getSharedPreferences("Location",Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor1 = sharedPreferences1.edit();
                         editor1.putString("latitude","0");
                         editor1.putString("longitude","0");
-                        editor1.commit();
+                        editor1.apply();
                         dialog.dismiss();
                         dialog.cancel();
+                        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                                new ResultCallback<Status>() {
+                                    @Override
+                                    public void onResult(Status status) {
+                                        // ...
+                                        Toast.makeText(getActivity(),"Logged Out",Toast.LENGTH_SHORT).show();
+                                        Fragment fragment = fragmentManager.findFragmentByTag("0");
+                                        if(fragment != null)
+                                            fragmentManager.beginTransaction().remove(fragment).commit();
 
-                        Intent i = new Intent(getActivity(), Authentication.class);
-                        startActivity(i);                    }
+                                        fragment = fragmentManager.findFragmentByTag("1");
+                                        if(fragment != null)
+                                            fragmentManager.beginTransaction().remove(fragment).commit();
+
+                                        fragment = fragmentManager.findFragmentByTag("2");
+                                        if(fragment != null)
+                                            fragmentManager.beginTransaction().remove(fragment).commit();
+
+                                        fragment = fragmentManager.findFragmentByTag("3");
+                                        if(fragment != null)
+                                            fragmentManager.beginTransaction().remove(fragment).commit();
+
+                                        fragment = fragmentManager.findFragmentByTag("4");
+                                        if(fragment != null)
+                                            fragmentManager.beginTransaction().remove(fragment).commit();
+
+
+
+                                        Intent i = new Intent(getActivity(), Authentication.class);
+                                        startActivity(i);
+
+                                    }
+                                });
+                    }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(final DialogInterface dialog, final int id) {

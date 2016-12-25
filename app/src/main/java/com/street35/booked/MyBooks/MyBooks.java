@@ -73,18 +73,21 @@ public class MyBooks extends android.app.Fragment implements GoogleApiClient.OnC
         //ecopy = "goel.rashi48@gmail.com";
         //ecopy = getArguments().getString("username");
         //Log.d("mybooks",ecopy);
-        boolean conn = isConnected(getActivity());
-
-
-        swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipelayout);
-       swipeLayout.setOnRefreshListener(this);
         dialog = new MaterialDialog.Builder(view.getContext())
                 .title("Fetching Data")
                 .content("And Its Almost There")
                 .progress(true, 0)
                 .cancelable(false)
                 .backgroundColor(Color.WHITE)
+
                 .show();
+
+        boolean conn = isConnected(getActivity());
+
+
+        swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipelayout);
+       swipeLayout.setOnRefreshListener(this);
+
 
 
 

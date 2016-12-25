@@ -133,10 +133,8 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.MyView
 
 
                 Picasso.with(context).load(image_url)
-
                         //.centerCrop()
                         //.skipMemoryCache()
-
                         //.memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
                         //.networkPolicy(NetworkPolicy.NO_CACHE)
                         .into(holder.book_image);
