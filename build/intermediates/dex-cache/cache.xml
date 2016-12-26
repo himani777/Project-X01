@@ -250,7 +250,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="ef07f0fc1545eece85c712c076b62220a2b3bb72">
+        sha1="470352839d90df77adfe720775c00f1423ab8123">
         <dex dex="C:\Users\hp\Documents\GitHub\BookED\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_83fadbcb95efaa2284999d8e08cbfde0470b8e52\classes.dex" />
     </item>
     <item
@@ -588,6 +588,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\hp\Documents\GitHub\BookED\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ba6aa5e69ef31dee57208125323cee958fc67565">
+        <dex dex="C:\Users\hp\Documents\GitHub\BookED\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-10.0.1_c4f81df70b1de086a042f57051f8df22330f4794\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\hp\Documents\GitHub\BookED\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -610,7 +619,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="d885f66d2f6c0f1ca6a1188016e569fe8d225713">
+        sha1="3d9966d34e7470577a2a541cef6a21e8b833ca23">
         <dex dex="C:\Users\hp\Documents\GitHub\BookED\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_537ee50dc5e4fc6be53d3a56e1bff6964747dd87\classes.dex" />
     </item>
     <item
@@ -1089,15 +1098,6 @@
         revision="23.0.3"
         sha1="814fc0c3ec69a944add398217d90077301501a74">
         <dex dex="C:\Users\hp\Documents\GitHub\BookED\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.makeramen-roundedimageview-2.2.1_4237911740b460d96ff27be52cdf6ddeecb6dcbf\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\hp\Documents\GitHub\BookED\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\8.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="dfecc4d835cdabcdecf7e95f0d20a3ef1e9d8ef4">
-        <dex dex="C:\Users\hp\Documents\GitHub\BookED\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-8.4.0_c52d2fcc9b1bc4145d57386b900a6fe5ddae424f\classes.dex" />
     </item>
     <item
         is-multidex="true"
