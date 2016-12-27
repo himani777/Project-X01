@@ -232,7 +232,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/contactus"
-                    android:text="Contact Us | Coming Soon..."
+                    android:text="Contact Us "
                     android:layout_alignParentTop="true"
                     android:layout_alignLeft="@+id/text4"
                     android:layout_alignStart="@+id/text4"

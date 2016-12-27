@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -34,8 +35,8 @@ import com.street35.booked.R;
  * Created by Weirdo on 11-08-2016.
  */
 public class ProfileFragment extends android.app.Fragment{
-    TextView detail , text1, profile_name;
-    ImageView detailimg;
+    TextView detail , text1, profile_name , contactus , text4;
+    ImageView detailimg , contactusimg;
     android.app.FragmentManager fragmentManager;
     EditDetails editDetails;
     Toolbar toolbar;
@@ -45,10 +46,9 @@ public class ProfileFragment extends android.app.Fragment{
     public static ProfileFragment newInstance() {
 
         if(profileFragment!=null) return profileFragment;
-
         profileFragment = new ProfileFragment();
-
         return profileFragment;
+
     }
 
     @Override
@@ -75,9 +75,55 @@ public class ProfileFragment extends android.app.Fragment{
         detail = (TextView)v.findViewById(R.id.detail);
         text1 = (TextView)v.findViewById(R.id.text1);
         detailimg = (ImageView)v.findViewById(R.id.detailimg);
+
+        contactus = (TextView)v.findViewById(R.id.contactus);
+        text4 = (TextView)v.findViewById(R.id.text4);
+        contactusimg = (ImageView)v.findViewById(R.id.contactusimg);
         fragmentManager = getFragmentManager();
         Log.d("Hey","Hmmm");
         getActivity().setTitle("Profile");
+
+
+        contactus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              gPlus();
+            }
+        });
+        text4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gPlus();
+            }
+        });
+        contactusimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gPlus();
+            }
+        });
+
+
+
+        detail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pDetails();
+            }
+        });
+        detailimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pDetails();
+            }
+        });
+        text1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pDetails();
+            }
+        });
+
 
 
 
@@ -109,36 +155,7 @@ public class ProfileFragment extends android.app.Fragment{
 
 
 
-        detail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("Hey","Hmmmasasasasasasas");
 
-                Intent i = new Intent(getActivity(), EditDetails.class);
-                startActivity(i);
-
-            }
-        });
-        detailimg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("Hey","Hmmmasasasasasasas");
-
-                Intent i = new Intent(getActivity(), EditDetails.class);
-                startActivity(i);
-
-            }
-        });
-        text1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("Hey","Hmmmasasasasasasas");
-
-                Intent i = new Intent(getActivity(), EditDetails.class);
-                startActivity(i);
-
-            }
-        });
 
         return v;
     }
@@ -241,4 +258,22 @@ public class ProfileFragment extends android.app.Fragment{
         getActivity().setTitle("Profile");
         super.onAttachFragment(childFragment);
     }
+
+
+
+
+
+    private void gPlus(){
+        String url = "https://plus.google.com/communities/107007444706625817079";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
+
+    private void pDetails(){
+        Intent i = new Intent(getActivity(), EditDetails.class);
+        startActivity(i);
+    }
+
+
 }
