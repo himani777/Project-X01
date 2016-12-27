@@ -439,7 +439,7 @@ public class Authentication extends AppCompatActivity
 
             Log.e(TAG, "Name: " + personName + ", email: " + email
                     + ", Image: " + personPhotoUrl);
-            Toast.makeText(getBaseContext(), personName ,Toast.LENGTH_LONG).show();
+            //Toast.makeText(getBaseContext(), personName ,Toast.LENGTH_LONG).show();
 
 
 

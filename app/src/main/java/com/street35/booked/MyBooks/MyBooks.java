@@ -83,7 +83,6 @@ public class MyBooks extends android.app.Fragment implements GoogleApiClient.OnC
                 .progress(true, 0)
                 .cancelable(false)
                 .backgroundColor(Color.WHITE)
-
                 .show();
 
         boolean conn = isConnected(getActivity());
@@ -331,6 +330,7 @@ public class MyBooks extends android.app.Fragment implements GoogleApiClient.OnC
 
     public void fetchData(){
 
+        itemList = null;
         swipeLayout.setRefreshing(true);
 
         Response.Listener<String> listener = new Response.Listener<String>() {

@@ -231,7 +231,11 @@ public class ProfileFragment extends android.app.Fragment{
 
 
                                         Intent i = new Intent(getActivity(), Authentication.class);
+                                        i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
                                         startActivity(i);
+                                        
+
 
                                     }
                                 });
