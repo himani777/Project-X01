@@ -119,7 +119,7 @@ public class UserInfo extends AppCompatActivity {
                                             editor.putString("address", add);
                                             editor.putString("university", uni);
                                             editor.putString("contact", con);
-                                            editor.putString("sex", "2");
+                                            editor.putString("sex", "0");
                                             editor.apply();
                                             Log.d("ffffffffffffffffff", fname + lname + uni + con + add + "2" + email);
 

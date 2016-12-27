@@ -360,7 +360,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Location location = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
         if(location==null){
             System.out.println("location not found");
-            Snackbar.make(getCurrentFocus(),"Could not get the location ! Try Again",Snackbar.LENGTH_LONG).show();
+            //Snackbar.make(getApplicationContext(),"Could not get the location ! Try Again",Snackbar.LENGTH_LONG).show();
         }
         else{
             //handleNewLocation(location);

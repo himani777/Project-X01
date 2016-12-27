@@ -3,6 +3,8 @@ package com.street35.booked.Profile;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.LightingColorFilter;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +46,7 @@ public class EditDetails extends AppCompatActivity {
     ProfileModel profileModel ;
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
+    ImageView sexicon,contacticon,universityicon,locationicon;
 
 
     @Override
@@ -59,6 +63,22 @@ public class EditDetails extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("Login",Context.MODE_PRIVATE);
         s =  sharedPreferences.getString("email","goel.rashi48@gmail.com");
         Log.d("Email Id : ",s);
+        int color = Color.parseColor("#3B494C"); //The color u want
+        sexicon = ((ImageView)findViewById(R.id.sexicon));
+
+        sexicon.setColorFilter(color);
+
+        universityicon = ((ImageView)findViewById(R.id.universityicon));
+
+        universityicon.setColorFilter(color);
+
+        contacticon = ((ImageView)findViewById(R.id.contacticon));
+
+        contacticon.setColorFilter(color);
+
+        locationicon = ((ImageView)findViewById(R.id.locationicon));
+
+        locationicon.setColorFilter(color);
 
 
 
@@ -191,7 +211,7 @@ public class EditDetails extends AppCompatActivity {
         String University = sharedPreferences.getString("university","");
         String Contact = sharedPreferences.getString("contact","");
         String Address = sharedPreferences.getString("address","");
-        String Sex = sharedPreferences.getString("sex","2");
+        String Sex = sharedPreferences.getString("sex","");
 
 
 

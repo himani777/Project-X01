@@ -120,6 +120,8 @@ public class BottomNavigation extends AppCompatActivity {
 
                 switch (position){
                     case 0 :
+
+                        toolbar.setTitle("Nearby Books");
                         if(position == last_position) break;
 
                         fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag(last_position+"")).commit();
@@ -140,7 +142,9 @@ public class BottomNavigation extends AppCompatActivity {
                         break;
 
                     case 1 :
+                        toolbar.setTitle("All Books");
                         if(position == last_position) break;
+
 
                         fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag(last_position+"")).commit();
                         last_position = position;
@@ -162,6 +166,7 @@ public class BottomNavigation extends AppCompatActivity {
                         break;
 
                     case 2 :
+                        toolbar.setTitle("Home");
                         if(position == last_position) break;
 
                         fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag(last_position+"")).commit();
@@ -185,6 +190,7 @@ public class BottomNavigation extends AppCompatActivity {
                         break;
 
                     case 3 :
+                        toolbar.setTitle("My Shelf");
                         if(position == last_position) break;
                         fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag(last_position+"")).commit();
                         last_position = position;
@@ -199,7 +205,7 @@ public class BottomNavigation extends AppCompatActivity {
 
 
                             MyBooks mb = MyBooks.newInstance();
-                            toolbar.setTitle("My Books");
+                            toolbar.setTitle("My Shelf");
 
                             fragmentManager.beginTransaction().add(R.id.fragmentContainer, mb, "3").commit();
                         }
@@ -207,6 +213,7 @@ public class BottomNavigation extends AppCompatActivity {
                         break;
 
                     case 4 :
+                        toolbar.setTitle("Profile");
                         if(position == last_position) break;
                         fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag(last_position+"")).commit();
                         last_position = position;

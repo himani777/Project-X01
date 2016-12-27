@@ -145,6 +145,7 @@ public class Authentication extends AppCompatActivity
                         if(signInCheck==1)
                         {
                             signIn();
+                            signInCheck=10;
                         }
                     }
                 });
@@ -477,6 +478,11 @@ public class Authentication extends AppCompatActivity
                             }else{
 
                                 Log.d(TAG,"Json else");
+                                editor.putString("address", jsonObject.getString("Address"));
+                                editor.putString("university", jsonObject.getString("university"));
+                                editor.putString("contact", jsonObject.getString("contact"));
+                                editor.putString("sex", "0");
+                                editor.apply();
                               //  Snackbar.make(getCurrentFocus(), "Welcome buddy !", Snackbar.LENGTH_LONG).show();
                                 Intent i = new Intent(Authentication.this, BottomNavigation.class);
                                 startActivity(i);
@@ -579,10 +585,11 @@ public class Authentication extends AppCompatActivity
             //Sign In True
             Intent i = new Intent(Authentication.this, BottomNavigation.class);
             startActivity(i);
+            finish();
         } else {
 
-            Toast.makeText( getApplicationContext(), "Some Internal Issue. Try after sometime" ,
-                    Toast.LENGTH_LONG).show();
+        //    Toast.makeText( getApplicationContext(), "Some Internal Issue. Try after sometime" ,
+          //          Toast.LENGTH_LONG).show();
             //Not Signed In
         }
     }
@@ -785,6 +792,7 @@ public class Authentication extends AppCompatActivity
                         Intent i = new Intent(Authentication.this , BottomNavigation.class);
                         i.putExtra("username",em);
                         startActivity(i);
+                        finish();
 
 
 

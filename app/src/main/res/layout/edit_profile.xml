@@ -3,9 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    android:background="@color/colorPrimary">
+    android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -16,8 +14,7 @@
             android:id="@+id/toolbar_profile"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            android:background="@color/profiletoolbar" />
+            app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -58,7 +55,7 @@
                android:hint="First Name"
                android:background="@drawable/edit_text_bg"
                android:padding="@dimen/padding"
-               android:textColorHint="@color/colorAccent"
+               android:textColorHint="@color/tabcolor"
                android:id="@+id/ep_first_name"/>
 
 
@@ -68,7 +65,7 @@
                 android:hint="Last Name"
                 android:background="@drawable/edit_text_bg"
                 android:padding="@dimen/padding"
-                android:textColorHint="@color/colorAccent"
+                android:textColorHint="@color/tabcolor"
                 android:id="@+id/ep_last_name"
                 android:layout_marginTop="20sp"/>
 
@@ -84,7 +81,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/profiledetails"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="3"
+        android:gravity="center">
 
 
         <LinearLayout
@@ -97,8 +95,10 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_person_white_36dp"
-            android:layout_weight="0.5"/>
+            android:src="@drawable/ic_face_black_24dp"
+            android:layout_weight="0.5"
+            android:layout_gravity="center"
+            android:id="@+id/sexicon"/>
 
         </LinearLayout>
 
@@ -130,7 +130,7 @@
                     android:layout_height="match_parent"
                     android:text="Male"
                     android:paddingRight="7sp"
-                    android:textColor="@color/profiletextcolor"
+                    android:textColor="@color/tabcolor"
                     android:shadowColor="@color/profiletextcolor"
                     />
 
@@ -138,7 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Female"
-                    android:textColor="@color/profiletextcolor"
+                    android:textColor="@color/tabcolor"
                     android:shadowColor="@color/profiletextcolor"
                     />
 
@@ -146,7 +146,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Others"
-                    android:textColor="@color/profiletextcolor"
+                    android:textColor="@color/tabcolor"
                     android:shadowColor="@color/profiletextcolor"
                     />
 
@@ -163,7 +163,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/profiledetails"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="3"
+        android:gravity="center">
 
 
 
@@ -177,8 +178,10 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_contact_phone_white_36dp"
-            android:layout_weight="0.5"/>
+            android:src="@drawable/ic_perm_phone_msg_black_24dp"
+            android:layout_weight="0.5"
+            android:layout_gravity="center"
+            android:id="@+id/contacticon"/>
 
     </LinearLayout>
 
@@ -195,7 +198,7 @@
             android:layout_height="wrap_content"
             android:hint="Contact"
             android:padding="12sp"
-            android:textColorHint="@color/profiletextcolor"
+            android:textColorHint="@color/tabcolor"
             android:layout_weight="2.5"
             android:inputType="phone"
             android:textColor="@color/profiletextcolor"
@@ -214,7 +217,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/profiledetails"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="3"
+        android:gravity="center">
 
 
 
@@ -228,8 +232,10 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_place_white_36dp"
-                android:layout_weight="0.5"/>
+                android:src="@drawable/ic_my_location_black_24dp"
+                android:layout_weight="0.5"
+                android:layout_gravity="center"
+                android:id="@+id/locationicon"/>
 
         </LinearLayout>
 
@@ -246,7 +252,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Address"
                 android:padding="12sp"
-                android:textColorHint="@color/profiletextcolor"
+                android:textColorHint="@color/tabcolor"
                 android:layout_weight="2.5"
 
                 android:textColor="@color/profiletextcolor"
@@ -267,7 +273,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/profiledetails"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="3"
+        android:gravity="center">
 
 
 
@@ -281,8 +288,10 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_account_balance_white_36dp"
-                android:layout_weight="0.5"/>
+                android:src="@drawable/ic_school_black_24dp"
+                android:layout_weight="0.5"
+                android:layout_gravity="center"
+                android:id="@+id/universityicon"/>
 
         </LinearLayout>
 
@@ -301,7 +310,7 @@
                 android:layout_height="wrap_content"
                 android:hint="University"
                 android:padding="12sp"
-                android:textColorHint="@color/profiletextcolor"
+                android:textColorHint="@color/tabcolor"
                 android:layout_weight="2.5"
                 android:id="@+id/ep_university"/>
         </LinearLayout>
@@ -321,6 +330,7 @@
         android:background="@drawable/recyclerviewbg"
         android:paddingLeft="@dimen/buttonpadding"
         android:paddingRight="@dimen/buttonpadding"
+        android:textColor="#ffffff"
         android:layout_gravity="center_horizontal"/>
 
 

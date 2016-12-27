@@ -8,6 +8,6 @@
     <color name="tabcolor">#3B494C</color>
     <color name="recyclerviewbg">#E0E0E0</color>
     <color name="profilebg">#4E4D5C</color>
-    <color name="profiletextcolor">#ffffff</color>
+    <color name="profiletextcolor">#000000</color>
     <color name="profiletoolbar">#fe6466</color>
 </resources>
