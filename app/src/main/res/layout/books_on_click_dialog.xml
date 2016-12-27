@@ -20,7 +20,7 @@
         <ImageView
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:src="@drawable/bookedlogo300p"
+            android:src="@drawable/logo"
             android:layout_gravity="center_horizontal"
             android:id="@+id/dialog_image"
             />

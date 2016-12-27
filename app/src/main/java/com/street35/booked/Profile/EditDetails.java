@@ -80,6 +80,9 @@ public class EditDetails extends AppCompatActivity {
 
         locationicon.setColorFilter(color);
 
+        male = (RadioButton) findViewById(R.id.ep_male);
+        female = (RadioButton) findViewById(R.id.ep_female);
+        others = (RadioButton) findViewById(R.id.ep_others);
 
 
 
@@ -107,9 +110,9 @@ public class EditDetails extends AppCompatActivity {
                 final String d4 = fname.getText().toString();
                 final String d5 = lname.getText().toString();
 
-                if (male.isSelected()) sex = "0";
-                else if (female.isSelected()) sex = "1";
-                else sex = "2";
+                if (male.isChecked()) sex = "male";
+                else if (female.isChecked()) sex = "female";
+                else sex = "others";
 
 
                 Geocoder coder = new Geocoder(v.getContext());
@@ -127,7 +130,7 @@ public class EditDetails extends AppCompatActivity {
                     SharedPreferences.Editor editor1 = preferences.edit();
                     editor1.putString("latitude",String.valueOf(lat));
                     editor1.putString("longitude",String.valueOf(lng));
-                    editor1.commit();
+                    editor1.apply();
 
 
 
@@ -221,11 +224,11 @@ public class EditDetails extends AppCompatActivity {
 
                         fname.setText(First_name);
                         lname.setText(Last_name);
-                        if(Sex.endsWith("0")) male.setChecked(true);
+                        if(Sex.equals("male")) male.setChecked(true);
                         else
-                        if(Sex.endsWith("1")) female.setChecked(true);
+                        if(Sex.equals("female")) female.setChecked(true);
                         else
-                        if(Sex.endsWith("2")) others.setChecked(true);
+                        if(Sex.equals("others")) others.setChecked(true);
                         university.setText(University);
                         contact.setText(Contact);
                         address.setText(Address);

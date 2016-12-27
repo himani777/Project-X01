@@ -72,7 +72,7 @@ public class Authentication extends AppCompatActivity
 
 
    // Login login = new Login();
-    Register register = new Register();
+
     Button signup;
     TextView forgootpass;
     ProgressDialog progressDialog;
@@ -563,6 +563,7 @@ public class Authentication extends AppCompatActivity
             materialDialog = new MaterialDialog.Builder(this)
                     .title("Verifying")
                     .content("Signing You In")
+                    .progress(true, 0)
                     .show();
 
             opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
@@ -581,7 +582,7 @@ public class Authentication extends AppCompatActivity
 
 
     private void updateUI(boolean isSignedIn) {
-        if (true) {
+        if (isSignedIn) {
             //Sign In True
             Intent i = new Intent(Authentication.this, BottomNavigation.class);
             startActivity(i);
